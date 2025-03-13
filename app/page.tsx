@@ -7,10 +7,8 @@ import FeaturedProducts from "@/components/featured-products"
 import PromoBanner from "@/components/promo-banner"
 import SearchBar from "@/components/search-bar"
 import ThemeToggle from "@/components/theme-toggle"
-import DeliveryOptions from "@/components/delivery-options"
 import QuickReorder from "@/components/quick-reorder"
 import OffersSection from "@/components/offers-section"
-import MembershipBanner from "@/components/membership-banner"
 import RecentlyViewed from "@/components/recently-viewed"
 
 export default function Home() {
@@ -18,16 +16,24 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <header className="sticky flex items-center justify-center top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between py-4">
-          <div className="flex items-center gap-2">
-            <ShoppingBag className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold">FreshCart</span>
+          <div className="flex items-center gap-6">
+            <Link href="/" className="flex items-center gap-2">
+              <ShoppingBag className="h-6 w-6 text-primary" />
+              <span className="text-xl font-bold">FreshCart</span>
+            </Link>
           </div>
           <div className="flex items-center gap-4">
-            <ThemeToggle/>
+            <Link href="/premium" className="text-sm font-medium text-black/80">
+              Premium
+            </Link>
+            <Link href="/account" className="hidden md:block text-sm font-medium hover:text-primary">
+              My Account
+            </Link>
+            <ThemeToggle />
             <Link href="/cart">
               <Button variant="outline" size="icon" className="relative cursor-pointer">
                 <ShoppingBag className="h-5 w-5" />
-                <span className="bg-red-700 absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold text-white">
+                <span className="bg-red-500 absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold text-white">
                   3
                 </span>
               </Button>
@@ -42,20 +48,16 @@ export default function Home() {
 
         <PromoBanner />
 
-        <section className="my-8">
+        <section className="my-12">
           <h2 className="mb-6 text-2xl font-bold">Categories</h2>
           <CategorySection />
         </section>
 
-        <section className="my-8">
+        <section className="my-12">
           <OffersSection />
         </section>
 
-        <section className="my-8">
-          <DeliveryOptions />
-        </section>
-
-        <section className="my-8">
+        <section className="my-12">
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-2xl font-bold">Featured Products</h2>
             <Link href="/products" className="text-sm font-medium text-primary">
@@ -65,15 +67,11 @@ export default function Home() {
           <FeaturedProducts />
         </section>
 
-        <section className="my-8">
+        <section className="my-12">
           <QuickReorder />
         </section>
 
-        <section className="my-8">
-          <MembershipBanner />
-        </section>
-
-        <section className="my-8">
+        <section className="my-12">
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-2xl font-bold">Daily Essentials</h2>
             <Link href="/products?category=essentials" className="text-sm font-medium text-primary">
@@ -107,11 +105,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="my-8">
+        <section className="my-12">
           <RecentlyViewed />
         </section>
       </main>
-      <footer className="border-t bg-muted py-6">
+      <footer className="border-t bg-muted py-8">
         <div className="container">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <div className="flex items-center gap-2">

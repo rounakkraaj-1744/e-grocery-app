@@ -90,18 +90,9 @@ export default function PremiumPage() {
             <ThemeToggle />
             <Link href="/cart">
               <Button variant="outline" size="icon" className="relative cursor-pointer">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-5 w-5"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                  strokeLinejoin="round" className="h-5 w-5">
                   <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
                   <path d="M3 6h18" />
                   <path d="M16 10a4 4 0 0 1-8 0" />
@@ -115,7 +106,7 @@ export default function PremiumPage() {
         </div>
       </header>
 
-      <main className="container pb-12 pt-6">
+      <main className="items-center justify-center pb-12 pt-6">
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center">
             <div className="mb-4 flex justify-center">

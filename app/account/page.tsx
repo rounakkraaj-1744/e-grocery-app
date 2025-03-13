@@ -2,16 +2,30 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Bell, ChevronLeft, CreditCard, Heart, Home, LogOut, Package, Settings, ShoppingBag, User } from "lucide-react"
+import {
+  Bell,
+  ChevronLeft,
+  CreditCard,
+  Heart,
+  Home,
+  Package,
+  Settings,
+  ShoppingBag,
+  User,
+  Shield,
+  Calendar,
+  MapPin,
+} from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import ThemeToggle from "@/components/theme-toggle"
-import { Separator } from "@/components/ui/separator"
+import { Badge } from "@/components/ui/badge"
 
 export default function AccountPage() {
   const [activeTab, setActiveTab] = useState("profile")
@@ -100,139 +114,176 @@ export default function AccountPage() {
         </div>
       </header>
 
-      <main className="container pb-12 pt-6">
-        <div className="flex flex-col gap-8 md:flex-row">
-          <aside className="md:w-64">
-            <Card className="sticky top-24 border-2 border-primary/10">
-              <CardHeader className="pb-4">
-                <div className="flex items-center gap-3">
-                  <Avatar className="h-12 w-12 border-2 border-primary/20">
-                    <AvatarImage src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=100&auto=format&fit=crop" />
-                    <AvatarFallback>RK</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <CardTitle>Rahul Kumar</CardTitle>
-                    <CardDescription>Premium Member</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="p-0">
-                <nav className="grid gap-1 px-2">
-                  <Button
-                    variant={activeTab === "profile" ? "secondary" : "ghost"}
-                    className="justify-start"
-                    onClick={() => setActiveTab("profile")}
-                  >
-                    <User className="mr-2 h-4 w-4" />
-                    Profile
-                  </Button>
-                  <Button
-                    variant={activeTab === "orders" ? "secondary" : "ghost"}
-                    className="justify-start"
-                    onClick={() => setActiveTab("orders")}
-                  >
-                    <Package className="mr-2 h-4 w-4" />
-                    Orders
-                  </Button>
-                  <Button
-                    variant={activeTab === "addresses" ? "secondary" : "ghost"}
-                    className="justify-start"
-                    onClick={() => setActiveTab("addresses")}
-                  >
-                    <Home className="mr-2 h-4 w-4" />
-                    Addresses
-                  </Button>
-                  <Button
-                    variant={activeTab === "wishlist" ? "secondary" : "ghost"}
-                    className="justify-start"
-                    onClick={() => setActiveTab("wishlist")}
-                  >
-                    <Heart className="mr-2 h-4 w-4" />
-                    Wishlist
-                  </Button>
-                  <Button
-                    variant={activeTab === "payment" ? "secondary" : "ghost"}
-                    className="justify-start"
-                    onClick={() => setActiveTab("payment")}
-                  >
-                    <CreditCard className="mr-2 h-4 w-4" />
-                    Payment Methods
-                  </Button>
-                  <Button
-                    variant={activeTab === "notifications" ? "secondary" : "ghost"}
-                    className="justify-start"
-                    onClick={() => setActiveTab("notifications")}
-                  >
-                    <Bell className="mr-2 h-4 w-4" />
-                    Notifications
-                  </Button>
-                  <Button
-                    variant={activeTab === "settings" ? "secondary" : "ghost"}
-                    className="justify-start"
-                    onClick={() => setActiveTab("settings")}
-                  >
-                    <Settings className="mr-2 h-4 w-4" />
-                    Settings
-                  </Button>
-                  <Separator className="my-2" />
-                  <Button
-                    variant="ghost"
-                    className="justify-start text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20"
-                  >
-                    <LogOut className="mr-2 h-4 w-4" />
-                    Logout
-                  </Button>
-                </nav>
-              </CardContent>
-            </Card>
-          </aside>
-          <div className="flex-1">
-            {activeTab === "profile" && (
-              <Card className="border-2 border-primary/10">
-                <CardHeader>
-                  <CardTitle>Profile Information</CardTitle>
-                  <CardDescription>Update your personal information</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div className="space-y-2">
-                      <Label htmlFor="firstName">First Name</Label>
-                      <Input id="firstName" defaultValue="Rahul" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="lastName">Last Name</Label>
-                      <Input id="lastName" defaultValue="Kumar" />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" defaultValue="rahul.kumar@example.com" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input id="phone" defaultValue="+91 98765 43210" />
-                  </div>
-                  <div className="flex justify-end">
-                    <Button className="bg-gradient-to-r from-primary to-primary/80">Save Changes</Button>
-                  </div>
-                </CardContent>
-              </Card>
-            )}
+      <main className="items-center justify-center pb-12 pt-6">
+        <div className="mb-8 flex flex-col items-center justify-center text-center">
+          <div className="relative">
+            <Avatar className="h-24 w-24 border-4 border-primary/20">
+              <AvatarImage src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=100&auto=format&fit=crop" />
+              <AvatarFallback>RK</AvatarFallback>
+            </Avatar>
+            <Badge className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground">
+              Premium
+            </Badge>
+          </div>
+          <h1 className="mt-4 text-2xl font-bold">Rahul Kumar</h1>
+          <p className="text-muted-foreground">Member since June 2023</p>
+        </div>
 
-            {activeTab === "orders" && (
-              <Card className="border-2 border-primary/10">
-                <CardHeader>
-                  <CardTitle>Order History</CardTitle>
+        <Tabs defaultValue="profile" className="w-full" onValueChange={setActiveTab}>
+          <div className="mb-8 flex justify-center">
+            <TabsList className="grid w-full max-w-3xl grid-cols-4 md:grid-cols-7">
+              <TabsTrigger value="profile" className="flex flex-col items-center gap-1 py-2">
+                <User className="h-4 w-4" />
+                <span className="text-xs">Profile</span>
+              </TabsTrigger>
+              <TabsTrigger value="orders" className="flex flex-col items-center gap-1 py-2">
+                <Package className="h-4 w-4" />
+                <span className="text-xs">Orders</span>
+              </TabsTrigger>
+              <TabsTrigger value="addresses" className="flex flex-col items-center gap-1 py-2">
+                <MapPin className="h-4 w-4" />
+                <span className="text-xs">Addresses</span>
+              </TabsTrigger>
+              <TabsTrigger value="wishlist" className="flex flex-col items-center gap-1 py-2">
+                <Heart className="h-4 w-4" />
+                <span className="text-xs">Wishlist</span>
+              </TabsTrigger>
+              <TabsTrigger value="payment" className="flex flex-col items-center gap-1 py-2">
+                <CreditCard className="h-4 w-4" />
+                <span className="text-xs">Payment</span>
+              </TabsTrigger>
+              <TabsTrigger value="notifications" className="flex flex-col items-center gap-1 py-2">
+                <Bell className="h-4 w-4" />
+                <span className="text-xs">Alerts</span>
+              </TabsTrigger>
+              <TabsTrigger value="settings" className="flex flex-col items-center gap-1 py-2">
+                <Settings className="h-4 w-4" />
+                <span className="text-xs">Settings</span>
+              </TabsTrigger>
+            </TabsList>
+          </div>
+
+          <div className="mx-auto max-w-4xl">
+            <TabsContent value="profile">
+              <div className="grid gap-6 md:grid-cols-2">
+                <Card className="border-2 border-primary/10 bg-card/50 backdrop-blur">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="flex items-center gap-2 text-xl">
+                      <User className="h-5 w-5 text-primary" />
+                      Personal Information
+                    </CardTitle>
+                    <CardDescription>Update your personal details</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="grid gap-4 md:grid-cols-2">
+                      <div className="space-y-2">
+                        <Label htmlFor="firstName">First Name</Label>
+                        <Input
+                          id="firstName"
+                          defaultValue="Rahul"
+                          className="border-primary/20 focus-visible:ring-primary/30"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="lastName">Last Name</Label>
+                        <Input
+                          id="lastName"
+                          defaultValue="Kumar"
+                          className="border-primary/20 focus-visible:ring-primary/30"
+                        />
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        defaultValue="rahul.kumar@example.com"
+                        className="border-primary/20 focus-visible:ring-primary/30"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">Phone Number</Label>
+                      <Input
+                        id="phone"
+                        defaultValue="+91 98765 43210"
+                        className="border-primary/20 focus-visible:ring-primary/30"
+                      />
+                    </div>
+                  </CardContent>
+                  <CardFooter className="flex justify-end">
+                    <Button className="bg-gradient-to-r from-primary to-primary/80">Save Changes</Button>
+                  </CardFooter>
+                </Card>
+
+                <Card className="border-2 border-primary/10 bg-card/50 backdrop-blur">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="flex items-center gap-2 text-xl">
+                      <Shield className="h-5 w-5 text-primary" />
+                      Account Security
+                    </CardTitle>
+                    <CardDescription>Manage your password and security settings</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="current-password">Current Password</Label>
+                      <Input
+                        id="current-password"
+                        type="password"
+                        className="border-primary/20 focus-visible:ring-primary/30"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="new-password">New Password</Label>
+                      <Input
+                        id="new-password"
+                        type="password"
+                        className="border-primary/20 focus-visible:ring-primary/30"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="confirm-password">Confirm New Password</Label>
+                      <Input
+                        id="confirm-password"
+                        type="password"
+                        className="border-primary/20 focus-visible:ring-primary/30"
+                      />
+                    </div>
+                  </CardContent>
+                  <CardFooter className="flex justify-end">
+                    <Button className="bg-gradient-to-r from-primary to-primary/80">Update Password</Button>
+                  </CardFooter>
+                </Card>
+              </div>
+            </TabsContent>
+
+            <TabsContent value="orders">
+              <Card className="border-2 border-primary/10 bg-card/50 backdrop-blur">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-2 text-xl">
+                    <Package className="h-5 w-5 text-primary" />
+                    Order History
+                  </CardTitle>
                   <CardDescription>View and track your orders</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-4">
-                    {orders.map((order) => (
-                      <div key={order.id} className="rounded-lg border p-4">
+                  <div className="space-y-6">
+                    {orders.map((order, index) => (
+                      <div
+                        key={order.id}
+                        className={`rounded-lg ${
+                          index % 2 === 0 ? "bg-primary/5" : "bg-secondary/5"
+                        } p-4 transition-all hover:shadow-md`}
+                      >
                         <div className="flex flex-wrap items-center justify-between gap-2">
-                          <div>
-                            <p className="font-medium">{order.id}</p>
-                            <p className="text-sm text-muted-foreground">{order.date}</p>
+                          <div className="flex items-center gap-3">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-muted">
+                              <Calendar className="h-5 w-5 text-muted-foreground" />
+                            </div>
+                            <div>
+                              <p className="font-medium">{order.id}</p>
+                              <p className="text-sm text-muted-foreground">{order.date}</p>
+                            </div>
                           </div>
                           <div className="flex items-center gap-2">
                             <span
@@ -244,12 +295,12 @@ export default function AccountPage() {
                             >
                               {order.status}
                             </span>
-                            <Button variant="outline" size="sm">
+                            <Button variant="outline" size="sm" className="border-primary/20 hover:bg-primary/5">
                               View Details
                             </Button>
                           </div>
                         </div>
-                        <div className="mt-2 flex items-center justify-between">
+                        <div className="mt-3 flex items-center justify-between">
                           <span className="text-sm text-muted-foreground">{order.items} items</span>
                           <span className="font-medium">{order.total}</span>
                         </div>
@@ -258,21 +309,30 @@ export default function AccountPage() {
                   </div>
                 </CardContent>
               </Card>
-            )}
+            </TabsContent>
 
-            {activeTab === "addresses" && (
-              <Card className="border-2 border-primary/10">
-                <CardHeader>
-                  <CardTitle>Delivery Addresses</CardTitle>
+            <TabsContent value="addresses">
+              <Card className="border-2 border-primary/10 bg-card/50 backdrop-blur">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-2 text-xl">
+                    <MapPin className="h-5 w-5 text-primary" />
+                    Delivery Addresses
+                  </CardTitle>
                   <CardDescription>Manage your delivery addresses</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-4">
+                  <div className="grid gap-4 md:grid-cols-2">
                     {addresses.map((address) => (
-                      <div key={address.id} className="rounded-lg border p-4">
+                      <div
+                        key={address.id}
+                        className={`rounded-lg border-2 ${
+                          address.default ? "border-primary/20 bg-primary/5" : "border-muted"
+                        } p-4 transition-all hover:shadow-md`}
+                      >
                         <div className="flex items-start justify-between">
                           <div>
                             <div className="flex items-center gap-2">
+                              <Home className="h-4 w-4 text-primary" />
                               <p className="font-medium">{address.name}</p>
                               {address.default && (
                                 <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
@@ -280,186 +340,218 @@ export default function AccountPage() {
                                 </span>
                               )}
                             </div>
-                            <p className="mt-1 text-sm text-muted-foreground">{address.address}</p>
+                            <p className="mt-2 text-sm text-muted-foreground">{address.address}</p>
                           </div>
                           <div className="flex gap-2">
-                            <Button variant="outline" size="sm">
+                            <Button variant="outline" size="sm" className="h-8 border-primary/20 hover:bg-primary/5">
                               Edit
                             </Button>
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              className="text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20"
-                            >
-                              Delete
-                            </Button>
+                            {!address.default && (
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                className="h-8 text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20"
+                              >
+                                Delete
+                              </Button>
+                            )}
                           </div>
                         </div>
                       </div>
                     ))}
-                    <Button variant="outline" className="w-full">
-                      + Add New Address
-                    </Button>
+                    <div className="flex h-full min-h-[120px] items-center justify-center rounded-lg border-2 border-dashed border-muted p-4 text-center">
+                      <div>
+                        <Button variant="outline" className="mb-2 border-primary/20 hover:bg-primary/5">
+                          + Add New Address
+                        </Button>
+                        <p className="text-xs text-muted-foreground">Add a new delivery address</p>
+                      </div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
-            )}
+            </TabsContent>
 
-            {activeTab === "wishlist" && (
-              <Card className="border-2 border-primary/10">
-                <CardHeader>
-                  <CardTitle>Wishlist</CardTitle>
+            <TabsContent value="wishlist">
+              <Card className="border-2 border-primary/10 bg-card/50 backdrop-blur">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-2 text-xl">
+                    <Heart className="h-5 w-5 text-primary" />
+                    Wishlist
+                  </CardTitle>
                   <CardDescription>Products you've saved for later</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-4">
+                  <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
                     {wishlist.map((item) => (
-                      <div key={item.id} className="flex items-center gap-4 rounded-lg border p-4">
-                        <div className="h-16 w-16 overflow-hidden rounded-md bg-muted">
+                      <div
+                        key={item.id}
+                        className="group overflow-hidden rounded-lg border-2 border-muted bg-card transition-all hover:border-primary/20 hover:shadow-md"
+                      >
+                        <div className="relative aspect-square bg-muted">
                           <img
                             src={item.image || "/placeholder.svg"}
                             alt={item.name}
-                            className="h-full w-full object-cover"
+                            className="h-full w-full object-cover transition-transform group-hover:scale-105"
                           />
-                        </div>
-                        <div className="flex-1">
-                          <p className="font-medium">{item.name}</p>
-                          <p className="text-sm font-bold">₹{item.price}</p>
-                        </div>
-                        <div className="flex gap-2">
-                          <Button size="sm">Add to Cart</Button>
                           <Button
                             variant="outline"
-                            size="sm"
-                            className="text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20"
+                            size="icon"
+                            className="absolute right-2 top-2 h-8 w-8 rounded-full bg-background/80 text-red-500 backdrop-blur-sm"
                           >
-                            Remove
+                            <Heart className="h-4 w-4 fill-current" />
+                            <span className="sr-only">Remove from wishlist</span>
                           </Button>
+                        </div>
+                        <div className="p-3">
+                          <h3 className="font-medium">{item.name}</h3>
+                          <div className="mt-1 flex items-center justify-between">
+                            <span className="text-sm font-bold">₹{item.price}</span>
+                            <Button size="sm" className="h-8 bg-primary text-primary-foreground">
+                              Add to Cart
+                            </Button>
+                          </div>
                         </div>
                       </div>
                     ))}
+                    <div className="flex aspect-square flex-col items-center justify-center rounded-lg border-2 border-dashed border-muted p-4 text-center">
+                      <div className="mb-2 rounded-full bg-muted p-2">
+                        <ShoppingBag className="h-6 w-6 text-muted-foreground" />
+                      </div>
+                      <p className="text-sm font-medium">Continue Shopping</p>
+                      <p className="mt-1 text-xs text-muted-foreground">Add more items to your wishlist</p>
+                      <Button asChild variant="link" className="mt-2 text-primary">
+                        <Link href="/">Browse Products</Link>
+                      </Button>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
-            )}
+            </TabsContent>
 
-            {activeTab === "payment" && (
-              <Card className="border-2 border-primary/10">
-                <CardHeader>
-                  <CardTitle>Payment Methods</CardTitle>
+            <TabsContent value="payment">
+              <Card className="border-2 border-primary/10 bg-card/50 backdrop-blur">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-2 text-xl">
+                    <CreditCard className="h-5 w-5 text-primary" />
+                    Payment Methods
+                  </CardTitle>
                   <CardDescription>Manage your payment methods</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="rounded-lg border p-6 text-center">
+                  <div className="flex min-h-[200px] flex-col items-center justify-center rounded-lg border p-6 text-center">
+                    <div className="mb-4 rounded-full bg-muted p-3">
+                      <CreditCard className="h-6 w-6 text-muted-foreground" />
+                    </div>
                     <p className="text-muted-foreground">No payment methods added yet</p>
-                    <Button className="mt-4">Add Payment Method</Button>
+                    <Button className="mt-4 bg-gradient-to-r from-primary to-primary/80">Add Payment Method</Button>
                   </div>
                 </CardContent>
               </Card>
-            )}
+            </TabsContent>
 
-            {activeTab === "notifications" && (
-              <Card className="border-2 border-primary/10">
-                <CardHeader>
-                  <CardTitle>Notification Preferences</CardTitle>
+            <TabsContent value="notifications">
+              <Card className="border-2 border-primary/10 bg-card/50 backdrop-blur">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-2 text-xl">
+                    <Bell className="h-5 w-5 text-primary" />
+                    Notification Preferences
+                  </CardTitle>
                   <CardDescription>Manage how you receive notifications</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between rounded-lg bg-primary/5 p-4">
                       <div>
                         <p className="font-medium">Order Updates</p>
                         <p className="text-sm text-muted-foreground">Receive updates about your orders</p>
                       </div>
-                      <Switch defaultChecked />
+                      <Switch defaultChecked className="data-[state=checked]:bg-primary" />
                     </div>
-                    <Separator />
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between rounded-lg bg-card p-4">
                       <div>
                         <p className="font-medium">Promotions and Offers</p>
                         <p className="text-sm text-muted-foreground">Receive notifications about deals and discounts</p>
                       </div>
-                      <Switch defaultChecked />
+                      <Switch defaultChecked className="data-[state=checked]:bg-primary" />
                     </div>
-                    <Separator />
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between rounded-lg bg-primary/5 p-4">
                       <div>
                         <p className="font-medium">Product Recommendations</p>
                         <p className="text-sm text-muted-foreground">Get personalized product suggestions</p>
                       </div>
-                      <Switch />
+                      <Switch className="data-[state=checked]:bg-primary" />
                     </div>
-                    <Separator />
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between rounded-lg bg-card p-4">
                       <div>
                         <p className="font-medium">Newsletter</p>
                         <p className="text-sm text-muted-foreground">Receive our weekly newsletter</p>
                       </div>
-                      <Switch defaultChecked />
+                      <Switch defaultChecked className="data-[state=checked]:bg-primary" />
                     </div>
                   </div>
                 </CardContent>
               </Card>
-            )}
+            </TabsContent>
 
-            {activeTab === "settings" && (
-              <Card className="border-2 border-primary/10">
-                <CardHeader>
-                  <CardTitle>Account Settings</CardTitle>
+            <TabsContent value="settings">
+              <Card className="border-2 border-primary/10 bg-card/50 backdrop-blur">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-2 text-xl">
+                    <Settings className="h-5 w-5 text-primary" />
+                    Account Settings
+                  </CardTitle>
                   <CardDescription>Manage your account preferences</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="language">Language</Label>
-                      <select
-                        id="language"
-                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      >
-                        <option value="en">English</option>
-                        <option value="hi">Hindi</option>
-                        <option value="mr">Marathi</option>
-                      </select>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="currency">Currency</Label>
-                      <select
-                        id="currency"
-                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      >
-                        <option value="inr">Indian Rupee (₹)</option>
-                        <option value="usd">US Dollar ($)</option>
-                      </select>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="font-medium">Dark Mode</p>
-                        <p className="text-sm text-muted-foreground">Toggle between light and dark mode</p>
+                  <div className="space-y-6">
+                    <div className="grid gap-4 md:grid-cols-2">
+                      <div className="space-y-2">
+                        <Label htmlFor="language">Language</Label>
+                        <select
+                          id="language"
+                          className="flex h-10 w-full rounded-md border border-primary/20 bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                        >
+                          <option value="en">English</option>
+                          <option value="hi">Hindi</option>
+                          <option value="mr">Marathi</option>
+                        </select>
                       </div>
-                      <ThemeToggle />
+                      <div className="space-y-2">
+                        <Label htmlFor="currency">Currency</Label>
+                        <select
+                          id="currency"
+                          className="flex h-10 w-full rounded-md border border-primary/20 bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                        >
+                          <option value="inr">Indian Rupee (₹)</option>
+                          <option value="usd">US Dollar ($)</option>
+                        </select>
+                      </div>
                     </div>
-                    <Separator />
-                    <div className="space-y-2">
-                      <Label htmlFor="current-password">Current Password</Label>
-                      <Input id="current-password" type="password" />
+
+                    <div className="rounded-lg bg-primary/5 p-4">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="font-medium">Dark Mode</p>
+                          <p className="text-sm text-muted-foreground">Toggle between light and dark mode</p>
+                        </div>
+                        <ThemeToggle />
+                      </div>
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="new-password">New Password</Label>
-                      <Input id="new-password" type="password" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="confirm-password">Confirm New Password</Label>
-                      <Input id="confirm-password" type="password" />
-                    </div>
-                    <div className="flex justify-end">
-                      <Button className="bg-gradient-to-r from-primary to-primary/80">Update Password</Button>
+
+                    <div className="rounded-lg border border-destructive/20 bg-destructive/5 p-4">
+                      <h3 className="mb-2 font-medium text-destructive">Danger Zone</h3>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        Once you delete your account, there is no going back. Please be certain.
+                      </p>
+                      <Button variant="destructive">Delete Account</Button>
                     </div>
                   </div>
                 </CardContent>
               </Card>
-            )}
+            </TabsContent>
           </div>
-        </div>
+        </Tabs>
       </main>
     </div>
   )

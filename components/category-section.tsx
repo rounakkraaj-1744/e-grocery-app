@@ -137,8 +137,9 @@ const categories = [
 
 export default function CategorySection() {
   return (
-    <div className="space-y-6 justify-center items-center">
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+    <div className="flex flex-col space-y-8">
+      {/* Icon grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 justify-center">
         {categories.map((category) => (
           <Link key={category.id} href={`/products?category=${category.id}`} className="group">
             <div
@@ -153,7 +154,8 @@ export default function CategorySection() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {/* Featured categories with subcategories */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.slice(0, 6).map((category) => (
           <Card key={category.id} className={`overflow-hidden border-2 ${category.color}`}>
             <div className="flex items-center gap-4 p-4">
@@ -203,3 +205,4 @@ export default function CategorySection() {
     </div>
   )
 }
+
