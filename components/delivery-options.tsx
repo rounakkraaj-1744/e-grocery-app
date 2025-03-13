@@ -20,8 +20,8 @@ const deliverySlots = [
 ]
 
 const addresses = [
-  { id: "addr1", name: "Home", address: "123 Main Street, Apt 4B, New York, NY 10001", default: true },
-  { id: "addr2", name: "Office", address: "456 Business Ave, Suite 200, New York, NY 10002", default: false },
+  { id: "addr1", name: "Home", address: "123 Main Street, Apt 4B, Mumbai, MH 400001", default: true },
+  { id: "addr2", name: "Office", address: "456 Business Ave, Suite 200, Mumbai, MH 400002", default: false },
 ]
 
 export default function DeliveryOptions() {
@@ -29,7 +29,7 @@ export default function DeliveryOptions() {
   const [selectedAddress, setSelectedAddress] = useState("addr1")
 
   return (
-    <Card>
+    <Card className="border-2 border-primary/20">
       <CardHeader className="pb-3">
         <CardTitle className="flex items-center gap-2 text-xl">
           <CalendarClock className="h-5 w-5 text-primary" />
@@ -115,4 +115,3 @@ export default function DeliveryOptions() {
     </Card>
   )
 }
-
