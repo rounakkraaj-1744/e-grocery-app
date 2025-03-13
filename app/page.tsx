@@ -44,20 +44,16 @@ export default function Home() {
         <PromoBanner />
 
         <section className="my-8">
-          <DeliveryOptions />
-        </section>
-
-        <section className="my-8">
-          <QuickReorder />
-        </section>
-
-        <section className="my-8">
           <h2 className="mb-6 text-2xl font-bold">Categories</h2>
           <CategorySection />
         </section>
 
         <section className="my-8">
           <OffersSection />
+        </section>
+
+        <section className="my-8">
+          <DeliveryOptions />
         </section>
 
         <section className="my-8">
@@ -68,6 +64,10 @@ export default function Home() {
             </Link>
           </div>
           <FeaturedProducts />
+        </section>
+
+        <section className="my-8">
+          <QuickReorder />
         </section>
 
         <section className="my-8">
@@ -84,10 +84,10 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {Array.from({ length: 5 }).map((_, i) => (
               <Link key={i} href={`/product/${i + 11}`} className="group">
-                <div className="overflow-hidden rounded-lg border bg-card transition-all hover:shadow-md">
+                <div className="overflow-hidden rounded-xl border-2 border-muted bg-card transition-all hover:border-primary/20 hover:shadow-md">
                   <div className="aspect-square bg-muted">
                     <img
-                      src={`/placeholder.svg?height=200&width=200&text=Essential ${i + 1}`}
+                      src={`https://images.unsplash.com/photo-${1570913149827 + i * 100}-d2ac84ab3f9a?q=80&w=200&auto=format&fit=crop`}
                       alt={`Essential ${i + 1}`}
                       className="h-full w-full object-cover transition-transform group-hover:scale-105"
                     />
@@ -95,7 +95,7 @@ export default function Home() {
                   <div className="p-3">
                     <h3 className="font-medium">Essential Item {i + 1}</h3>
                     <div className="mt-1 flex items-center justify-between">
-                      <span className="text-sm font-bold">${(3.99 + i * 0.5).toFixed(2)}</span>
+                      <span className="text-sm font-bold">₹{(99 + i * 20).toFixed(2)}</span>
                       <Button size="sm" variant="ghost" className="h-8 w-8 rounded-full p-0">
                         <ShoppingBag className="h-4 w-4" />
                         <span className="sr-only">Add to cart</span>

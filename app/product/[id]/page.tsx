@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ChevronLeft, Heart, Minus, Plus, ShoppingBag, Star } from "lucide-react"
+import { ChevronLeft, Heart, Minus, Plus, ShoppingBag, Star } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -37,8 +37,8 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           <div className="flex flex-col gap-4">
             <div className="relative aspect-square overflow-hidden rounded-lg bg-muted">
               <img
-                src={`/placeholder.svg?height=600&width=600&text=Product ${productId}`}
-                alt={`Product ${productId}`}
+                src="https://images.unsplash.com/photo-1519162808019-7de1683fa2ad?q=80&w=600&auto=format&fit=crop"
+                alt="Organic Fresh Avocado"
                 className="h-full w-full object-cover"
               />
               <Button
@@ -54,7 +54,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               {Array.from({ length: 4 }).map((_, i) => (
                 <div key={i} className="overflow-hidden rounded-md border bg-muted">
                   <img
-                    src={`/placeholder.svg?height=100&width=100&text=View ${i + 1}`}
+                    src={`https://images.unsplash.com/photo-1519162808019-7de1683fa2ad?q=80&w=100&auto=format&fit=crop&crop=edges`}
                     alt={`Product view ${i + 1}`}
                     className="h-full w-full object-cover"
                   />
@@ -77,10 +77,10 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             </div>
 
             <div className="flex items-baseline gap-2">
-              <span className="text-3xl font-bold">$4.99</span>
-              <span className="text-sm text-muted-foreground line-through">$6.99</span>
+              <span className="text-3xl font-bold">₹149</span>
+              <span className="text-sm text-muted-foreground line-through">₹199</span>
               <span className="rounded-full bg-secondary/20 px-2 py-0.5 text-xs font-medium text-secondary-foreground">
-                Save 28%
+                Save 25%
               </span>
             </div>
 
@@ -136,7 +136,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                   <div className="space-y-4 text-sm">
                     <div className="grid grid-cols-2 gap-2">
                       <div className="text-muted-foreground">Origin</div>
-                      <div>California, USA</div>
+                      <div>Maharashtra, India</div>
                       <div className="text-muted-foreground">Weight</div>
                       <div>~200g per piece</div>
                       <div className="text-muted-foreground">Storage</div>
@@ -174,7 +174,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                               <div>
                                 <p className="font-medium">Customer {i + 1}</p>
                                 <div className="flex">
-                                  {Array.from({ length: 5 - (i % 2) }).map((_, j) => (
+                                  {Array.from({ length: 5 - i % 2 }).map((_, j) => (
                                     <Star key={j} className="h-3 w-3 fill-accent stroke-accent" />
                                   ))}
                                   {Array.from({ length: i % 2 }).map((_, j) => (
@@ -189,8 +189,8 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                             {i === 0
                               ? "These avocados were perfectly ripe and delicious. Will order again!"
                               : i === 1
-                                ? "Good quality but one was a bit bruised. Overall satisfied with my purchase."
-                                : "Amazing flavor and texture. Perfect for my avocado toast!"}
+                              ? "Good quality but one was a bit bruised. Overall satisfied with my purchase."
+                              : "Amazing flavor and texture. Perfect for my avocado toast!"}
                           </p>
                         </div>
                       ))}
@@ -205,4 +205,3 @@ export default function ProductPage({ params }: { params: { id: string } }) {
     </div>
   )
 }
-
