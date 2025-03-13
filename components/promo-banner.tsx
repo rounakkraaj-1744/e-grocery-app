@@ -28,7 +28,7 @@ export default function PromoBanner() {
           </div>
         </div>
       </div>
-      <div className="absolute inset-0 z-0 bg-[url('/placeholder.svg?height=400&width=800')] bg-cover bg-center opacity-10" />
+      <div className="absolute inset-0 z-0 bg-[url('https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop')] bg-cover bg-center opacity-10" />
     </div>
   )
 }

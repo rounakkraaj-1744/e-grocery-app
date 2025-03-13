@@ -17,7 +17,7 @@ const offers = [
     id: 2,
     title: "Free Delivery",
     code: "FREEDEL",
-    description: "On orders above $35",
+    description: "On orders above ₹500",
     expiryDate: "Valid till June 15, 2024",
     color: "bg-secondary/10 border-secondary/20",
     textColor: "text-secondary-foreground",
@@ -44,7 +44,7 @@ const offers = [
     id: 5,
     title: "10% Cashback",
     code: "CASHBACK10",
-    description: "On all orders above $50",
+    description: "On all orders above ₹1000",
     expiryDate: "Valid till end of month",
     color: "bg-green-100 dark:bg-green-900/20 border-green-200 dark:border-green-800/30",
     textColor: "text-green-700 dark:text-green-300",
@@ -55,7 +55,7 @@ export default function OffersSection() {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
-        <Tag className="h-5 w-5 text-primary" />
+        <Tag className="h-5 w-5 text-accent" />
         <h2 className="text-xl font-bold">Offers & Promotions</h2>
       </div>
 
@@ -83,7 +83,10 @@ export default function OffersSection() {
       </ScrollArea>
 
       <div className="flex justify-center">
-        <Link href="/offers" className="text-sm font-medium text-primary hover:underline">
+        <Link
+          href="/offers"
+          className="rounded-full bg-accent px-6 py-2 text-sm font-medium text-accent-foreground hover:bg-accent/90"
+        >
           View All Offers
         </Link>
       </div>

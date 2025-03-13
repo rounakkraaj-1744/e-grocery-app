@@ -11,23 +11,23 @@ const previousOrders = [
       {
         id: 1,
         name: "Organic Milk",
-        image: "/placeholder.svg?height=80&width=80&text=Milk",
-        price: 3.99,
+        image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?q=80&w=100&auto=format&fit=crop",
+        price: 79,
       },
       {
         id: 2,
         name: "Whole Wheat Bread",
-        image: "/placeholder.svg?height=80&width=80&text=Bread",
-        price: 2.99,
+        image: "https://images.unsplash.com/photo-1598373182133-52452f7691ef?q=80&w=100&auto=format&fit=crop",
+        price: 59,
       },
       {
         id: 3,
         name: "Eggs (12 pack)",
-        image: "/placeholder.svg?height=80&width=80&text=Eggs",
-        price: 3.49,
+        image: "https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?q=80&w=100&auto=format&fit=crop",
+        price: 89,
       },
     ],
-    total: 10.47,
+    total: 227,
   },
   {
     id: "ord-002",
@@ -36,17 +36,17 @@ const previousOrders = [
       {
         id: 4,
         name: "Fresh Apples",
-        image: "/placeholder.svg?height=80&width=80&text=Apples",
-        price: 4.99,
+        image: "https://images.unsplash.com/photo-1570913149827-d2ac84ab3f9a?q=80&w=100&auto=format&fit=crop",
+        price: 99,
       },
       {
         id: 5,
         name: "Chicken Breast",
-        image: "/placeholder.svg?height=80&width=80&text=Chicken",
-        price: 7.99,
+        image: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?q=80&w=100&auto=format&fit=crop",
+        price: 199,
       },
     ],
-    total: 12.98,
+    total: 298,
   },
   {
     id: "ord-003",
@@ -55,32 +55,32 @@ const previousOrders = [
       {
         id: 6,
         name: "Pasta Sauce",
-        image: "/placeholder.svg?height=80&width=80&text=Sauce",
-        price: 3.49,
+        image: "https://images.unsplash.com/photo-1472476443507-c7a5948772fc?q=80&w=100&auto=format&fit=crop",
+        price: 89,
       },
       {
         id: 7,
         name: "Spaghetti",
-        image: "/placeholder.svg?height=80&width=80&text=Pasta",
-        price: 1.99,
+        image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?q=80&w=100&auto=format&fit=crop",
+        price: 49,
       },
       {
         id: 8,
         name: "Parmesan Cheese",
-        image: "/placeholder.svg?height=80&width=80&text=Cheese",
-        price: 4.99,
+        image: "https://images.unsplash.com/photo-1566454825481-9c31bd88eac9?q=80&w=100&auto=format&fit=crop",
+        price: 129,
       },
     ],
-    total: 10.47,
+    total: 267,
   },
 ]
 
 export default function QuickReorder() {
   return (
-    <Card>
+    <Card className="border-2 border-secondary/20">
       <CardHeader className="pb-3">
         <CardTitle className="flex items-center gap-2 text-xl">
-          <RefreshCw className="h-5 w-5 text-primary" />
+          <RefreshCw className="h-5 w-5 text-secondary" />
           Quick Reorder
         </CardTitle>
         <CardDescription>Easily reorder your previous purchases</CardDescription>
@@ -90,13 +90,13 @@ export default function QuickReorder() {
           <div className="flex space-x-4">
             {previousOrders.map((order) => (
               <div key={order.id} className="w-[280px] shrink-0">
-                <div className="rounded-lg border bg-card p-3">
+                <div className="rounded-lg border-2 border-muted bg-card p-3">
                   <div className="mb-2 flex items-center justify-between">
                     <div className="flex items-center gap-1 text-sm text-muted-foreground">
                       <Clock className="h-3.5 w-3.5" />
                       <span>{order.date}</span>
                     </div>
-                    <span className="text-sm font-medium">${order.total.toFixed(2)}</span>
+                    <span className="text-sm font-medium">₹{order.total.toFixed(2)}</span>
                   </div>
                   <div className="space-y-2">
                     {order.items.map((item) => (
@@ -112,7 +112,10 @@ export default function QuickReorder() {
                       </div>
                     ))}
                   </div>
-                  <Button className="mt-3 w-full" size="sm">
+                  <Button
+                    className="mt-3 w-full bg-secondary text-secondary-foreground hover:bg-secondary/90"
+                    size="sm"
+                  >
                     Reorder All
                   </Button>
                 </div>
