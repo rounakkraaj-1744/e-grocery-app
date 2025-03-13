@@ -23,11 +23,11 @@ export default function Home() {
             <span className="text-xl font-bold">FreshCart</span>
           </div>
           <div className="flex items-center gap-4">
-            <ThemeToggle />
+            <ThemeToggle/>
             <Link href="/cart">
-              <Button variant="outline" size="icon" className="relative">
+              <Button variant="outline" size="icon" className="relative cursor-pointer">
                 <ShoppingBag className="h-5 w-5" />
-                <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-white">
+                <span className="bg-red-700 absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold text-white">
                   3
                 </span>
               </Button>
