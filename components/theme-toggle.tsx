@@ -27,11 +27,8 @@ export default function ThemeToggle() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon">
-          {resolvedTheme === "dark" ? (
-            <Moon className="h-[1.2rem] w-[1.2rem]" />
-          ) : (
-            <Sun className="h-[1.2rem] w-[1.2rem]" />
-          )}
+          {resolvedTheme === "dark" ? (<Moon className="h-[1.2rem] w-[1.2rem]" />)
+          : ( <Sun className="h-[1.2rem] w-[1.2rem]" />)}
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
