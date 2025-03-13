@@ -49,7 +49,7 @@ const featuredProducts = [
 
 export default function FeaturedProducts() {
   return (
-    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 items-center justify-center">
       {featuredProducts.map((product) => (
         <Link key={product.id} href={`/product/${product.id}`} className="group">
           <div className="overflow-hidden rounded-xl border-2 border-muted bg-card transition-all hover:border-primary/20 hover:shadow-md">

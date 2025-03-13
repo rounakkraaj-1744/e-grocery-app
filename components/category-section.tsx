@@ -137,7 +137,7 @@ const categories = [
 
 export default function CategorySection() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 justify-center items-center">
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
         {categories.map((category) => (
           <Link key={category.id} href={`/products?category=${category.id}`} className="group">
