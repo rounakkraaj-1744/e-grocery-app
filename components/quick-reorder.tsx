@@ -112,10 +112,7 @@ export default function QuickReorder() {
                       </div>
                     ))}
                   </div>
-                  <Button
-                    className="mt-3 w-full bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                    size="sm"
-                  >
+                  <Button className="mt-3 w-full bg-secondary text-secondary-foreground hover:bg-secondary/90" size="sm">
                     Reorder All
                   </Button>
                 </div>
