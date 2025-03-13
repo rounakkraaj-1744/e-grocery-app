@@ -16,6 +16,25 @@ import RecentlyViewed from "@/components/recently-viewed"
 export default function Home() {
   return (
     <div className="min-h-screen justify-center items-center bg-background">
+      <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container flex h-16 items-center justify-between py-4">
+          <div className="flex items-center gap-2">
+            <ShoppingBag className="h-6 w-6 text-primary" />
+            <span className="text-xl font-bold">FreshCart</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <Link href="/cart">
+              <Button variant="outline" size="icon" className="relative">
+                <ShoppingBag className="h-5 w-5" />
+                <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[10px] font-bold text-white">
+                  3
+                </span>
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </header>
       <main className="container pb-8 pt-6">
         <div className="mb-8">
           <SearchBar />
@@ -92,6 +111,20 @@ export default function Home() {
           <RecentlyViewed />
         </section>
       </main>
+      <footer className="border-t bg-muted py-6">
+        <div className="container">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <div className="flex items-center gap-2">
+              <ShoppingBag className="h-5 w-5 text-primary" />
+              <span className="text-lg font-bold">FreshCart</span>
+            </div>
+            <div className="text-center text-sm text-muted-foreground md:text-right">
+              <p>© 2024 FreshCart. All rights reserved.</p>
+              <p>Fresh groceries delivered to your doorstep</p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
