@@ -3,7 +3,7 @@ import CategorySection from "@/components/products/category-section"
 import FeaturedProducts from "@/components/products/featured-products"
 import PromoBanner from "@/components/promo-banner"
 import SearchBar from "@/components/search-bar"
-import QuickReorder from "@/components/quick-reorder"
+import QuickReorder from "@/components/products/quick-reorder"
 import OffersSection from "@/components/offers-section"
 import RecentlyViewed from "@/components/products/recently-viewed"
 
