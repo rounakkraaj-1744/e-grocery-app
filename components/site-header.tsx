@@ -8,7 +8,7 @@ import { CartSidebar } from "@/components/ui/cart-sidebar"
 import ThemeToggle from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/custom-sheet"
 import { motion, AnimatePresence } from "framer-motion"
 
 export function SiteHeader() {

@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
-      <main className="container items-center justify-center py-8">
+      <main className="items-center justify-center py-8">
         <div className="mb-8">
           <SearchBar />
         </div>
