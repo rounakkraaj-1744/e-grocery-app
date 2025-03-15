@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Header } from "@/components/header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -10,7 +9,6 @@ import { User, Package, Heart, CreditCard, MapPin, Bell, LogOut, Edit, ShoppingB
 export default function AccountPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main className="container py-8">
         <h1 className="mb-6 text-3xl font-bold">My Account</h1>
         <div className="grid gap-8 md:grid-cols-[240px_1fr]">
