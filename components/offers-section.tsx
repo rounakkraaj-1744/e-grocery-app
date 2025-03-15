@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -57,6 +57,18 @@ const offers = [
 
 export default function OffersSection() {
   const [hoveredId, setHoveredId] = useState<number | null>(null)
+  const [expiryDates, setExpiryDates] = useState<string[]>([])
+
+  useEffect(() => {
+    // Convert expiry dates on client-side to prevent hydration mismatch
+    setExpiryDates(offers.map(offer => new Date(offer.expiryDate).toLocaleDateString()))
+  }, [])
+
+  const copyToClipboard = (code: string) => {
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(code)
+    }
+  }
 
   return (
     <div>
@@ -68,7 +80,7 @@ export default function OffersSection() {
       </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
-        {offers.map((offer) => (
+        {offers.map((offer, index) => (
           <motion.div
             key={offer.id}
             whileHover={{ y: -5 }}
@@ -102,7 +114,7 @@ export default function OffersSection() {
                       variant="ghost"
                       size="sm"
                       className="ml-auto h-6 px-2 text-xs hover:bg-primary hover:text-primary-foreground"
-                      onClick={() => navigator.clipboard.writeText(offer.code)}
+                      onClick={() => copyToClipboard(offer.code)}
                     >
                       Copy
                     </Button>
@@ -115,7 +127,7 @@ export default function OffersSection() {
                     </div>
                     <div className="flex items-center gap-1">
                       <Clock className="h-3 w-3" />
-                      <span>Valid till: {new Date(offer.expiryDate).toLocaleDateString()}</span>
+                      <span>Valid till: {expiryDates[index] || "Loading..."}</span>
                     </div>
                   </div>
                 </div>
