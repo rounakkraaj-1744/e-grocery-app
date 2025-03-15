@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Header } from "@/components/site-header"
+import { Header } from "@/components/header"
 import CategorySection from "@/components/category-section"
 import FeaturedProducts from "@/components/featured-products"
 import PromoBanner from "@/components/promo-banner"

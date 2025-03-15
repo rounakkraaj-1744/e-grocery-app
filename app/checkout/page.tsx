@@ -4,7 +4,7 @@ import Link from "next/link"
 import { ChevronLeft, ShoppingBag } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
-import { Header } from "@/components/site-header"
+import { Header } from "@/components/header"
 import DeliveryOptions from "@/components/checkout/delivery-options"
 import { useRouter } from "next/navigation"
 

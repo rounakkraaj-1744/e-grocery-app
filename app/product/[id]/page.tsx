@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import Link from "next/link"
-import { Header } from "@/components/site-header"
+import { Header } from "@/components/header"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
