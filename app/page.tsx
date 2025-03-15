@@ -1,15 +1,15 @@
 import Link from "next/link"
-import CategorySection from "@/components/category-section"
-import FeaturedProducts from "@/components/featured-products"
+import CategorySection from "@/components/products/category-section"
+import FeaturedProducts from "@/components/products/featured-products"
 import PromoBanner from "@/components/promo-banner"
 import SearchBar from "@/components/search-bar"
 import QuickReorder from "@/components/quick-reorder"
 import OffersSection from "@/components/offers-section"
-import RecentlyViewed from "@/components/recently-viewed"
+import RecentlyViewed from "@/components/products/recently-viewed"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background p-6">
       <main className="items-center justify-center py-8">
         <div className="mb-8">
           <SearchBar />
