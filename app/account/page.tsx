@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SiteHeader } from "@/components/site-header";
+import { Header } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -10,7 +10,7 @@ import { User, Package, Heart, CreditCard, MapPin, Bell, LogOut, Edit, ShoppingB
 export default function AccountPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SiteHeader />
+      <Header />
       <main className="container py-8">
         <h1 className="mb-6 text-3xl font-bold">My Account</h1>
         <div className="grid gap-8 md:grid-cols-[240px_1fr]">
@@ -52,7 +52,7 @@ export default function AccountPage() {
                 <Link href="/account/notifications" className="flex items-center gap-3 p-3 border-t hover:bg-muted/50">
                   <Bell className="h-5 w-5" /> Notifications
                 </Link>
-                <Link href="/logout" className="flex items-center gap-3 p-3 border-t text-destructive hover:bg-destructive/5">
+                <Link href="/logout" className="flex items-center gap-3 p-3 border-t text-red-500 hover:bg-destructive hover:text-white transition-all duration-75">
                   <LogOut className="h-5 w-5" /> Logout
                 </Link>
               </div>

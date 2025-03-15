@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/custom-sheet"
 import { motion, AnimatePresence } from "framer-motion"
 
-export function SiteHeader() {
+export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
 
@@ -47,24 +47,6 @@ export function SiteHeader() {
                 </Link>
                 <nav className="flex flex-col gap-4">
                   <Link
-                    href="/categories"
-                    className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
-                  >
-                    <span className="text-lg font-medium">Categories</span>
-                  </Link>
-                  <Link
-                    href="/offers"
-                    className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
-                  >
-                    <span className="text-lg font-medium">Offers</span>
-                  </Link>
-                  <Link
-                    href="/premium"
-                    className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
-                  >
-                    <span className="text-lg font-medium">Premium</span>
-                  </Link>
-                  <Link
                     href="/account"
                     className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
                   >
@@ -79,18 +61,6 @@ export function SiteHeader() {
             <ShoppingBag className="h-6 w-6 text-primary" />
             <span className="text-xl font-bold gradient-text">FreshCart</span>
           </Link>
-
-          <nav className="hidden md:flex items-center gap-6 ml-6">
-            <Link href="/categories" className="text-sm font-medium hover:text-primary transition-colors">
-              Categories
-            </Link>
-            <Link href="/offers" className="text-sm font-medium hover:text-primary transition-colors">
-              Offers
-            </Link>
-            <Link href="/premium" className="text-sm font-medium hover:text-primary transition-colors">
-              Premium
-            </Link>
-          </nav>
         </div>
 
         <div className="flex items-center gap-3">

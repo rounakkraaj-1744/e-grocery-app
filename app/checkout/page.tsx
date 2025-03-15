@@ -4,7 +4,7 @@ import Link from "next/link"
 import { ChevronLeft, ShoppingBag } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
-import { SiteHeader } from "@/components/site-header"
+import { Header } from "@/components/site-header"
 import DeliveryOptions from "@/components/checkout/delivery-options"
 import { useRouter } from "next/navigation"
 
@@ -40,7 +40,7 @@ export default function CheckoutPage() {
 
     return (
         <div className="min-h-screen bg-background">
-            <SiteHeader />
+            <Header />
 
             <main className="container pb-12 pt-6">
                 <div className="mb-6 flex items-center">

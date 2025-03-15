@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { SiteHeader } from "@/components/site-header"
+import { Header } from "@/components/site-header"
 import CategorySection from "@/components/category-section"
 import FeaturedProducts from "@/components/featured-products"
 import PromoBanner from "@/components/promo-banner"
@@ -11,7 +11,7 @@ import RecentlyViewed from "@/components/recently-viewed"
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      <SiteHeader />
+      <Header />
       <main className="items-center justify-center py-8">
         <div className="mb-8">
           <SearchBar />

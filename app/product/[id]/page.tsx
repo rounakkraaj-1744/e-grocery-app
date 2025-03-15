@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import Link from "next/link"
-import { SiteHeader } from "@/components/site-header"
+import { Header } from "@/components/site-header"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
@@ -57,7 +57,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
   return (
     <div className="min-h-screen bg-background">
-      <SiteHeader />
+      <Header />
 
       <main className="container py-8">
         {/* Breadcrumbs */}
