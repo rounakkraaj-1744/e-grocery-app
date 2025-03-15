@@ -26,7 +26,7 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-40 w-full transition-all duration-300 ${
+      className={`sticky flex items-center justify-center top-0 z-40 w-full transition-all duration-300 ${
         isScrolled ? "bg-background/95 backdrop-blur shadow-sm" : "bg-background"
       }`}
     >
