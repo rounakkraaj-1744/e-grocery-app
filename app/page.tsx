@@ -4,7 +4,7 @@ import FeaturedProducts from "@/components/products/featured-products"
 import PromoBanner from "@/components/promo-banner"
 import SearchBar from "@/components/search-bar"
 import QuickReorder from "@/components/products/quick-reorder"
-import OffersSection from "@/components/offers-section"
+import OffersSection from "@/components/products/offers-section"
 import RecentlyViewed from "@/components/products/recently-viewed"
 
 export default function Home() {
