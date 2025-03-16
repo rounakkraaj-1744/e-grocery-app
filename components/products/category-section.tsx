@@ -1,76 +1,81 @@
 "use client"
 
 import { useState } from "react"
-import { motion } from "framer-motion"
 import Link from "next/link"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ChevronRight } from 'lucide-react'
+import { motion } from "framer-motion"
 
 const categories = [
   {
     id: "fruits-vegetables",
     name: "Fruits & Vegetables",
-    description: "Fresh, seasonal produce",
-    image: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=500&auto=format&fit=crop",
-    color: "from-green-500/20 to-lime-500/20",
+    image: "https://cdn.pixabay.com/photo/2016/08/11/08/04/vegetables-1584999_1280.jpg",
     items: 120,
   },
   {
-    id: "dairy-eggs",
-    name: "Dairy & Eggs",
-    description: "Farm-fresh dairy products",
-    image: "https://images.unsplash.com/photo-1628088062854-d1870b4553da?q=80&w=500&auto=format&fit=crop",
-    color: "from-blue-500/20 to-sky-500/20",
+    id: "dairy-bread-eggs",
+    name: "Dairy, Bread & Eggs",
+    image: "https://cdn.pixabay.com/photo/2020/06/30/15/03/bread-5356379_1280.jpg",
     items: 85,
   },
   {
-    id: "bakery",
-    name: "Bakery",
-    description: "Freshly baked goods",
-    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=500&auto=format&fit=crop",
-    color: "from-amber-500/20 to-yellow-500/20",
+    id: "snacks-munchies",
+    name: "Snacks & Munchies",
+    image: "https://cdn.pixabay.com/photo/2016/11/22/18/52/chips-1850263_1280.jpg",
     items: 64,
   },
   {
-    id: "meat-seafood",
-    name: "Meat & Seafood",
-    description: "Premium cuts and fresh catch",
-    image: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?q=80&w=500&auto=format&fit=crop",
-    color: "from-red-500/20 to-rose-500/20",
+    id: "cold-drinks-juices",
+    name: "Cold Drinks & Juices",
+    image: "https://cdn.pixabay.com/photo/2016/07/21/11/17/drink-1532300_1280.jpg",
     items: 78,
   },
   {
-    id: "pantry-staples",
-    name: "Pantry Staples",
-    description: "Essential cooking ingredients",
-    image: "https://images.unsplash.com/photo-1590779033100-9f60a05a013d?q=80&w=500&auto=format&fit=crop",
-    color: "from-orange-500/20 to-amber-500/20",
-    items: 156,
+    id: "breakfast-instant",
+    name: "Breakfast & Instant",
+    image: "https://cdn.pixabay.com/photo/2016/11/29/11/38/breakfast-1869132_1280.jpg",
+    items: 56,
   },
   {
-    id: "beverages",
-    name: "Beverages",
-    description: "Refreshing drinks & more",
-    image: "https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?q=80&w=500&auto=format&fit=crop",
-    color: "from-purple-500/20 to-violet-500/20",
+    id: "tea-coffee",
+    name: "Tea, Coffee & Health Drinks",
+    image: "https://cdn.pixabay.com/photo/2015/07/02/20/37/cup-829527_1280.jpg",
     items: 92,
   },
   {
-    id: "snacks",
-    name: "Snacks & Sweets",
-    description: "Delicious treats",
-    image: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?q=80&w=500&auto=format&fit=crop",
-    color: "from-pink-500/20 to-fuchsia-500/20",
+    id: "atta-rice-dal",
+    name: "Atta, Rice & Dal",
+    image: "https://cdn.pixabay.com/photo/2014/10/22/18/43/rice-498688_1280.jpg",
     items: 110,
   },
   {
-    id: "organic",
-    name: "Organic",
-    description: "Certified organic products",
-    image: "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=500&auto=format&fit=crop",
-    color: "from-teal-500/20 to-emerald-500/20",
+    id: "masala-oil",
+    name: "Masala, Oil & More",
+    image: "https://cdn.pixabay.com/photo/2015/02/24/02/05/spices-647074_1280.jpg",
     items: 75,
+  },
+  {
+    id: "meat-fish",
+    name: "Meat & Fish",
+    image: "https://cdn.pixabay.com/photo/2016/03/05/19/02/salmon-1238248_1280.jpg",
+    items: 45,
+  },
+  {
+    id: "bakery-biscuits",
+    name: "Bakery & Biscuits",
+    image: "https://cdn.pixabay.com/photo/2016/01/19/15/05/cookies-1149597_1280.jpg",
+    items: 88,
+  },
+  {
+    id: "personal-care",
+    name: "Personal Care",
+    image: "https://cdn.pixabay.com/photo/2016/01/19/15/48/luggage-1149289_1280.jpg",
+    items: 95,
+  },
+  {
+    id: "cleaning-essentials",
+    name: "Cleaning Essentials",
+    image: "https://cdn.pixabay.com/photo/2019/08/08/08/24/soap-4392163_1280.jpg",
+    items: 62,
   },
 ]
 
@@ -78,7 +83,7 @@ export default function CategorySection() {
   const [hoveredId, setHoveredId] = useState<string | null>(null)
 
   return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
       {categories.map((category) => (
         <motion.div
           key={category.id}
@@ -86,41 +91,31 @@ export default function CategorySection() {
           transition={{ duration: 0.3 }}
           onMouseEnter={() => setHoveredId(category.id)}
           onMouseLeave={() => setHoveredId(null)}
+          className="group"
         >
           <Link href={`/categories/${category.id}`} className="block h-full">
-            <Card className="overflow-hidden border-border/50 transition-all duration-300 hover:border-primary/30 hover:shadow-lg h-full">
-              <div className="relative">
-                <div className="aspect-[4/3] overflow-hidden">
+            <div className="flex flex-col items-center text-center">
+              <div className="w-full aspect-square overflow-hidden rounded-xl mb-2 border border-border/50 group-hover:border-primary/30 transition-colors shadow-sm group-hover:shadow-md">
+                <div className="w-full h-full relative">
                   <img
                     src={category.image || "/placeholder.svg"}
                     alt={category.name}
-                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                </div>
-                <div className={`absolute inset-0 bg-gradient-to-b ${category.color} opacity-60`} />
-              </div>
-              <CardContent className="p-4">
-                <div className="flex flex-col">
-                  <h3 className="text-lg font-bold">{category.name}</h3>
-                  <p className="text-sm text-muted-foreground">{category.description}</p>
-                  <div className="mt-2 flex items-center justify-between">
-                    <span className="text-xs text-muted-foreground">{category.items} items</span>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className={`p-0 h-auto ${
-                        hoveredId === category.id ? "text-primary" : "text-muted-foreground"
-                      }`}
-                    >
-                      Browse <ChevronRight className="ml-1 h-4 w-4" />
-                    </Button>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-2 left-0 right-0 text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {category.items} items
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+              <h3 className="text-sm font-medium line-clamp-2 group-hover:text-primary transition-colors">
+                {category.name}
+              </h3>
+            </div>
           </Link>
         </motion.div>
       ))}
     </div>
   )
 }
+

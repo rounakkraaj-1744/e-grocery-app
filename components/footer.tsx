@@ -28,8 +28,8 @@ export function Footer() {
               <span className="text-xl font-bold gradient-text">FreshCart</span>
             </Link>
             <p className="text-sm text-muted-foreground mb-6 max-w-md">
-              FreshCart delivers premium quality groceries right to your doorstep. Enjoy fresh produce, pantry
-              essentials, and specialty items with fast delivery and exceptional service.
+              FreshCart delivers premium quality groceries right to your doorstep in Berhampur, Odisha. Enjoy fresh
+              produce, pantry essentials, and specialty items with fast delivery and exceptional service.
             </p>
             <div className="flex items-center gap-4 mb-6">
               <Button
@@ -76,7 +76,7 @@ export function Footer() {
               </div>
               <div className="flex items-start gap-2 text-sm">
                 <MapPin className="h-4 w-4 text-primary mt-0.5" />
-                <span>123 Commerce Street, Mumbai, MH 400001, India</span>
+                <span>123 Gosaninuagaon Main Road, Berhampur, Odisha 760001, India</span>
               </div>
             </div>
           </div>
@@ -222,7 +222,7 @@ export function Footer() {
           <div className="flex flex-wrap justify-center gap-8 mb-6">
             <div className="flex items-center gap-2">
               <Truck className="h-5 w-5 text-primary" />
-              <span className="text-sm font-medium">Free Delivery</span>
+              <span className="text-sm font-medium">Free Delivery in Berhampur</span>
             </div>
             <div className="flex items-center gap-2">
               <Shield className="h-5 w-5 text-primary" />

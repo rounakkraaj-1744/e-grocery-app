@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Star, ShoppingCart, Heart, Eye, Check, Clock, Leaf } from "lucide-react"
+import { Star, ShoppingCart, Heart, Eye, Check, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
@@ -131,6 +131,36 @@ const products = [
     stock: 5,
     tags: ["seafood", "protein", "omega-3"],
   },
+  {
+    id: 9,
+    name: "Organic Bananas (6 pcs)",
+    price: 59,
+    originalPrice: 69,
+    rating: 4.5,
+    reviews: 92,
+    image: "https://images.unsplash.com/photo-1603833665858-e61d17a86224?q=80&w=600&auto=format&fit=crop",
+    category: "fruits",
+    badge: "Organic",
+    isNew: false,
+    isBestseller: true,
+    stock: 25,
+    tags: ["organic", "fresh", "fruit"],
+  },
+  {
+    id: 10,
+    name: "Fresh Tomatoes (500g)",
+    price: 39,
+    originalPrice: 49,
+    rating: 4.6,
+    reviews: 78,
+    image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?q=80&w=600&auto=format&fit=crop",
+    category: "vegetables",
+    badge: "Fresh",
+    isNew: false,
+    isBestseller: false,
+    stock: 30,
+    tags: ["fresh", "vegetable"],
+  },
 ]
 
 export default function FeaturedProducts() {
@@ -195,7 +225,7 @@ export default function FeaturedProducts() {
         </div>
 
         <TabsContent value="all" className="mt-6">
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {filteredProducts.map((product) => (
               <ProductCard
                 key={product.id}
@@ -211,7 +241,7 @@ export default function FeaturedProducts() {
 
         {["fruits", "vegetables", "dairy", "bakery", "meat"].map((category) => (
           <TabsContent key={category} value={category} className="mt-6">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
               {filteredProducts.map((product) => (
                 <ProductCard
                   key={product.id}
@@ -243,9 +273,9 @@ function ProductCard({ product, isWishlisted, isInCart, onWishlistToggle, onAddT
   const discount = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
 
   return (
-    <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
+    <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.2 }}>
       <Card
-        className="product-card h-full"
+        className="overflow-hidden border border-border/50 transition-all duration-300 hover:border-primary/30 hover:shadow-md h-full"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -262,31 +292,33 @@ function ProductCard({ product, isWishlisted, isInCart, onWishlistToggle, onAddT
 
           {/* Badges */}
           <div className="absolute left-2 top-2 flex flex-col gap-1">
-            {product.badge && <Badge className="bg-primary text-primary-foreground">{product.badge}</Badge>}
-            {product.isNew && <Badge className="bg-secondary text-secondary-foreground">New</Badge>}
-            {product.isBestseller && <Badge className="bg-accent text-accent-foreground">Bestseller</Badge>}
-            {discount > 0 && <Badge className="bg-destructive text-white">-{discount}%</Badge>}
+            {product.badge && (
+              <Badge className="text-xs px-2 py-0.5 bg-primary text-primary-foreground">{product.badge}</Badge>
+            )}
+            {discount > 0 && (
+              <Badge className="text-xs px-2 py-0.5 bg-destructive text-destructive-foreground">-{discount}%</Badge>
+            )}
           </div>
 
           {/* Quick actions */}
-          <div className="absolute right-2 top-2 flex flex-col gap-2">
+          <div className="absolute right-2 top-2 flex flex-col gap-1">
             <Button
               variant="secondary"
               size="icon"
-              className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground"
+              className="h-7 w-7 rounded-full bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground"
               onClick={() => onWishlistToggle(product.id)}
             >
-              <Heart className={`h-4 w-4 ${isWishlisted ? "fill-red-500 text-red-500" : ""}`} />
+              <Heart className={`h-3.5 w-3.5 ${isWishlisted ? "fill-red-500 text-red-500" : ""}`} />
               <span className="sr-only">Add to wishlist</span>
             </Button>
             <Button
               variant="secondary"
               size="icon"
-              className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground"
+              className="h-7 w-7 rounded-full bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground"
               asChild
             >
               <Link href={`/product/${product.id}`}>
-                <Eye className="h-4 w-4" />
+                <Eye className="h-3.5 w-3.5" />
                 <span className="sr-only">Quick view</span>
               </Link>
             </Button>
@@ -301,7 +333,7 @@ function ProductCard({ product, isWishlisted, isInCart, onWishlistToggle, onAddT
           </div>
 
           <Link href={`/product/${product.id}`} className="group">
-            <h3 className="line-clamp-2 text-sm font-medium group-hover:text-primary transition-colors">
+            <h3 className="line-clamp-2 text-sm font-medium group-hover:text-primary transition-colors min-h-[2.5rem]">
               {product.name}
             </h3>
           </Link>
@@ -313,32 +345,12 @@ function ProductCard({ product, isWishlisted, isInCart, onWishlistToggle, onAddT
             )}
           </div>
 
-          <div className="mt-1 flex flex-wrap gap-1">
-            {product.tags.slice(0, 2).map((tag) => (
-              <span
-                key={tag}
-                className="inline-flex rounded-full bg-muted px-2 py-0.5 text-[10px] font-medium text-muted-foreground"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          {/* Product features */}
-          <div className="mt-2 flex items-center gap-2 text-[10px] text-muted-foreground">
-            {product.badge === "Organic" && (
-              <div className="flex items-center gap-1">
-                <Leaf className="h-3 w-3 text-primary" />
-                <span>Organic</span>
-              </div>
-            )}
-            {product.stock <= 10 && (
-              <div className="flex items-center gap-1">
-                <Clock className="h-3 w-3 text-amber-500" />
-                <span>Only {product.stock} left</span>
-              </div>
-            )}
-          </div>
+          {product.stock <= 10 && (
+            <div className="mt-1 flex items-center gap-1 text-xs text-amber-500">
+              <Clock className="h-3 w-3" />
+              <span>Only {product.stock} left</span>
+            </div>
+          )}
         </CardContent>
 
         <CardFooter className="p-3 pt-0">

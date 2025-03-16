@@ -22,8 +22,18 @@ const deliverySlots = [
 ]
 
 const addresses = [
-  { id: "addr1", name: "Home", address: "123 Main Street, Apt 4B, Mumbai, MH 400001", default: true },
-  { id: "addr2", name: "Office", address: "456 Business Ave, Suite 200, Mumbai, MH 400002", default: false },
+  {
+    id: "addr1",
+    name: "Home",
+    address: "42 Gosaninuagaon Main Road, Near City Hospital, Berhampur, Odisha 760001",
+    default: true,
+  },
+  {
+    id: "addr2",
+    name: "Office",
+    address: "78 Tata Benz Square, 2nd Floor, Ambapua, Berhampur, Odisha 760010",
+    default: false,
+  },
 ]
 
 export default function DeliveryOptions() {
@@ -152,7 +162,7 @@ export default function DeliveryOptions() {
                           <input
                             id="street"
                             className="flex h-10 w-full rounded-md border border-primary/20 bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                            placeholder="123 Main Street, Apt 4B"
+                            placeholder="123 Kamapalli Street, Near Gandhi Park"
                           />
                         </div>
                         <div className="grid grid-cols-2 gap-4">
@@ -161,7 +171,8 @@ export default function DeliveryOptions() {
                             <input
                               id="city"
                               className="flex h-10 w-full rounded-md border border-primary/20 bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                              placeholder="Mumbai"
+                              placeholder="Berhampur"
+                              value="Berhampur"
                             />
                           </div>
                           <div className="space-y-2">
@@ -169,7 +180,7 @@ export default function DeliveryOptions() {
                             <input
                               id="pincode"
                               className="flex h-10 w-full rounded-md border border-primary/20 bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                              placeholder="400001"
+                              placeholder="760001"
                             />
                           </div>
                         </div>
@@ -256,9 +267,11 @@ export default function DeliveryOptions() {
                     <RadioGroupItem value="store1" id="store1" className="mt-1" />
                     <div className="flex-1">
                       <Label htmlFor="store1" className="font-medium">
-                        FreshCart - Bandra
+                        FreshCart - Gosaninuagaon
                       </Label>
-                      <p className="text-sm text-muted-foreground">24 Hill Road, Bandra West, Mumbai, 400050</p>
+                      <p className="text-sm text-muted-foreground">
+                        42 Gosaninuagaon Main Road, Near City Hospital, Berhampur, Odisha 760001
+                      </p>
                       <p className="text-xs text-muted-foreground mt-1">Open: 8:00 AM - 10:00 PM</p>
                       <p className="text-xs text-primary mt-2">2.5 km away • 15 items in stock</p>
                     </div>
@@ -268,10 +281,10 @@ export default function DeliveryOptions() {
                     <RadioGroupItem value="store2" id="store2" className="mt-1" />
                     <div className="flex-1">
                       <Label htmlFor="store2" className="font-medium">
-                        FreshCart - Andheri
+                        FreshCart - Ambapua
                       </Label>
                       <p className="text-sm text-muted-foreground">
-                        42 Oshiwara Link Road, Andheri West, Mumbai, 400053
+                        78 Tata Benz Square, 2nd Floor, Ambapua, Berhampur, Odisha 760010
                       </p>
                       <p className="text-xs text-muted-foreground mt-1">Open: 8:00 AM - 11:00 PM</p>
                       <p className="text-xs text-primary mt-2">5.8 km away • 15 items in stock</p>
@@ -282,10 +295,10 @@ export default function DeliveryOptions() {
                     <RadioGroupItem value="store3" id="store3" className="mt-1" />
                     <div className="flex-1">
                       <Label htmlFor="store3" className="font-medium">
-                        FreshCart - Powai
+                        FreshCart - Kamapalli
                       </Label>
                       <p className="text-sm text-muted-foreground">
-                        78 Central Avenue, Hiranandani Gardens, Powai, Mumbai, 400076
+                        23 Kamapalli Main Road, Near Gandhi Park, Berhampur, Odisha 760004
                       </p>
                       <p className="text-xs text-muted-foreground mt-1">Open: 9:00 AM - 10:00 PM</p>
                       <p className="text-xs text-primary mt-2">8.2 km away • 15 items in stock</p>
