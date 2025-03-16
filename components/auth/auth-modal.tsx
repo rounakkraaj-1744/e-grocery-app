@@ -4,7 +4,14 @@ import type React from "react"
 
 import { useState } from "react"
 import { User, Mail, Lock, Eye, EyeOff, UserPlus, LogIn } from "lucide-react"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -44,17 +51,17 @@ export function AuthModal() {
         </DialogHeader>
 
         <Tabs defaultValue="login" value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-2 mb-6">
+          <TabsList className="grid w-full grid-cols-2 mb-6 bg-muted/50 p-1 rounded-xl">
             <TabsTrigger
               value="login"
-              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
             >
               <LogIn className="h-4 w-4 mr-2" />
               Login
             </TabsTrigger>
             <TabsTrigger
               value="register"
-              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
             >
               <UserPlus className="h-4 w-4 mr-2" />
               Register
@@ -124,11 +131,7 @@ export function AuthModal() {
                     </Label>
                   </div>
 
-                  <Button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-primary to-primary/90 hover:shadow-glow transition-shadow"
-                    disabled={isLoading}
-                  >
+                  <Button type="submit" className="w-full button-primary" disabled={isLoading}>
                     {isLoading ? (
                       <div className="flex items-center">
                         <svg
@@ -272,11 +275,7 @@ export function AuthModal() {
                     </Label>
                   </div>
 
-                  <Button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-primary to-primary/90 hover:shadow-glow transition-shadow"
-                    disabled={isLoading}
-                  >
+                  <Button type="submit" className="w-full button-primary" disabled={isLoading}>
                     {isLoading ? (
                       <div className="flex items-center">
                         <svg

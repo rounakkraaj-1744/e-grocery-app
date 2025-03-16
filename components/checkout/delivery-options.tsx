@@ -8,6 +8,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { motion, AnimatePresence } from "framer-motion"
+import { Badge } from "@/components/ui/badge"
 
 const deliverySlots = [
   { id: "today-1", day: "Today", time: "2:00 PM - 4:00 PM", available: true },
@@ -31,9 +32,9 @@ export default function DeliveryOptions() {
   const [showNewAddress, setShowNewAddress] = useState(false)
 
   return (
-    <Card className="border-2 border-primary/10 bg-card/50 backdrop-blur">
+    <Card className="border-2 border-primary/10 bg-card/50 backdrop-blur overflow-hidden">
       <CardHeader className="pb-3">
-        <CardTitle className="flex items-center gap-2 text-xl">
+        <CardTitle className="text-xl flex items-center gap-2">
           <Truck className="h-5 w-5 text-primary" />
           Delivery Options
         </CardTitle>
@@ -41,17 +42,17 @@ export default function DeliveryOptions() {
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="delivery" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 mb-6">
+          <TabsList className="grid w-full grid-cols-2 mb-6 bg-muted/50 p-1 rounded-xl">
             <TabsTrigger
               value="delivery"
-              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
             >
               <Truck className="h-4 w-4 mr-2" />
               Delivery
             </TabsTrigger>
             <TabsTrigger
               value="pickup"
-              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
             >
               <Home className="h-4 w-4 mr-2" />
               Pickup
@@ -80,11 +81,7 @@ export default function DeliveryOptions() {
                           <Building className="h-4 w-4 text-primary" />
                         )}
                         {address.name}
-                        {address.default && (
-                          <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
-                            Default
-                          </span>
-                        )}
+                        {address.default && <Badge className="bg-primary/10 text-primary text-xs">Default</Badge>}
                       </Label>
                       <p className="mt-1 text-sm text-muted-foreground">{address.address}</p>
                       <div className="mt-2 flex gap-2">
@@ -297,7 +294,7 @@ export default function DeliveryOptions() {
                 </RadioGroup>
 
                 <div className="mt-4">
-                  <Button variant="outline" size="sm" className="w-full">
+                  <Button variant="outline" size="sm" className="w-full button-outline">
                     View More Stores
                   </Button>
                 </div>
