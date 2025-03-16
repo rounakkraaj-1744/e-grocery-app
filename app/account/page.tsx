@@ -7,36 +7,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { Separator } from "@/components/ui/separator"
 import { Badge } from "@/components/ui/badge"
-import {
-  User,
-  Package,
-  Heart,
-  CreditCard,
-  MapPin,
-  Bell,
-  LogOut,
-  Edit,
-  Calendar,
-  Settings,
-  Gift,
-  Truck,
-  Clock,
-  ChevronRight,
-  Star,
-  CheckCircle2,
-  Wallet,
-  Percent,
-  Award,
-  Zap,
-  BarChart3,
-  Bookmark,
-  HelpCircle,
-  FileText,
-  Phone,
-  Mail,
-  Tag,
-  Copy,
-} from "lucide-react"
+import {User,Package, Heart, CreditCard, MapPin, Bell, LogOut, Edit, Calendar, Settings, Gift, Truck, Clock, ChevronRight, Star,
+  CheckCircle2, Wallet, Percent, Award, Zap, BarChart3, Bookmark, HelpCircle, FileText, Phone, Mail, Tag, Copy} from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Progress } from "@/components/ui/progress"
