@@ -265,7 +265,7 @@ function ProductCard({ product, isWishlisted, isInCart, onWishlistToggle, onAddT
             {product.badge && <Badge className="bg-primary text-primary-foreground">{product.badge}</Badge>}
             {product.isNew && <Badge className="bg-secondary text-secondary-foreground">New</Badge>}
             {product.isBestseller && <Badge className="bg-accent text-accent-foreground">Bestseller</Badge>}
-            {discount > 0 && <Badge className="bg-destructive text-destructive-foreground">-{discount}%</Badge>}
+            {discount > 0 && <Badge className="bg-destructive text-white">-{discount}%</Badge>}
           </div>
 
           {/* Quick actions */}

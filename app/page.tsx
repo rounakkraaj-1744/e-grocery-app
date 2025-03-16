@@ -72,19 +72,6 @@ export default function Home() {
         </section>
 
         <section className="my-8 md:my-12">
-          <div className="rounded-2xl overflow-hidden relative">
-            <div className="aspect-[21/9] overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2070&auto=format&fit=crop"
-                alt="Organic Collection"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-teal-500/70 to-emerald-500/70 mix-blend-multiply" />
-            </div>
-          </div>
-        </section>
-
-        <section className="my-8 md:my-12">
           <RecentlyViewed />
         </section>
       </main>
