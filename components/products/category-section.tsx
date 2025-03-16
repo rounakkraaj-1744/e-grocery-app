@@ -14,25 +14,25 @@ const categories = [
   {
     id: "dairy-bread-eggs",
     name: "Dairy, Bread & Eggs",
-    image: "https://cdn.pixabay.com/photo/2020/06/30/15/03/bread-5356379_1280.jpg",
+    image: "https://cdn.pixabay.com/photo/2016/06/30/22/23/eggs-1490054_1280.jpg",
     items: 85,
   },
   {
     id: "snacks-munchies",
     name: "Snacks & Munchies",
-    image: "https://cdn.pixabay.com/photo/2016/11/22/18/52/chips-1850263_1280.jpg",
+    image: "https://cdn.pixabay.com/photo/2014/09/16/21/02/chips-448746_1280.jpg",
     items: 64,
   },
   {
     id: "cold-drinks-juices",
     name: "Cold Drinks & Juices",
-    image: "https://cdn.pixabay.com/photo/2016/07/21/11/17/drink-1532300_1280.jpg",
+    image: "https://cdn.pixabay.com/photo/2014/09/26/19/51/drink-462776_1280.jpg",
     items: 78,
   },
   {
     id: "breakfast-instant",
     name: "Breakfast & Instant",
-    image: "https://cdn.pixabay.com/photo/2016/11/29/11/38/breakfast-1869132_1280.jpg",
+    image: "https://cdn.pixabay.com/photo/2017/08/10/08/55/breakfast-2620176_1280.jpg",
     items: 56,
   },
   {
@@ -50,31 +50,31 @@ const categories = [
   {
     id: "masala-oil",
     name: "Masala, Oil & More",
-    image: "https://cdn.pixabay.com/photo/2015/02/24/02/05/spices-647074_1280.jpg",
+    image: "https://cdn.pixabay.com/photo/2016/05/10/04/31/spice-1383075_1280.jpg",
     items: 75,
   },
   {
     id: "meat-fish",
     name: "Meat & Fish",
-    image: "https://cdn.pixabay.com/photo/2016/03/05/19/02/salmon-1238248_1280.jpg",
+    image: "https://cdn.pixabay.com/photo/2023/08/24/08/36/fish-8210152_1280.jpg",
     items: 45,
   },
   {
     id: "bakery-biscuits",
     name: "Bakery & Biscuits",
-    image: "https://cdn.pixabay.com/photo/2016/01/19/15/05/cookies-1149597_1280.jpg",
+    image: "https://cdn.pixabay.com/photo/2020/07/29/09/46/cupcakes-5447570_1280.jpg",
     items: 88,
   },
   {
     id: "personal-care",
     name: "Personal Care",
-    image: "https://cdn.pixabay.com/photo/2016/01/19/15/48/luggage-1149289_1280.jpg",
+    image: "https://cdn.pixabay.com/photo/2013/04/25/11/17/cosmetics-106982_1280.jpg",
     items: 95,
   },
   {
     id: "cleaning-essentials",
     name: "Cleaning Essentials",
-    image: "https://cdn.pixabay.com/photo/2019/08/08/08/24/soap-4392163_1280.jpg",
+    image: "https://cdn.pixabay.com/photo/2018/02/01/01/40/cleaner-3122363_1280.jpg",
     items: 62,
   },
 ]

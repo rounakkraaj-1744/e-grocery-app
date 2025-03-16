@@ -12,6 +12,7 @@ import {
   Shield,
   Truck,
   Clock,
+  Leaf,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -222,7 +223,7 @@ export function Footer() {
           <div className="flex flex-wrap justify-center gap-8 mb-6">
             <div className="flex items-center gap-2">
               <Truck className="h-5 w-5 text-primary" />
-              <span className="text-sm font-medium">Free Delivery in Berhampur</span>
+              <span className="text-sm font-medium">Quick Delivery</span>
             </div>
             <div className="flex items-center gap-2">
               <Shield className="h-5 w-5 text-primary" />
@@ -235,6 +236,10 @@ export function Footer() {
             <div className="flex items-center gap-2">
               <Clock className="h-5 w-5 text-primary" />
               <span className="text-sm font-medium">24/7 Support</span>
+            </div>
+            <div className="flex items-center gap-2">
+            <Leaf className="h-5 w-5 text-primary" />
+              <span className="text-sm font-medium">Fresh Products</span>
             </div>
           </div>
 
