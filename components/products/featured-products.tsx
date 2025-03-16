@@ -9,7 +9,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { motion } from "framer-motion"
 import Link from "next/link"
 
-// Sample product data
+// Mock product data
 const products = [
   {
     id: 1,
@@ -173,9 +173,8 @@ export default function FeaturedProducts() {
   }
 
   const addToCart = (id: number) => {
-    if (!cart.includes(id)) {
+    if (!cart.includes(id))
       setCart((prev) => [...prev, id])
-    }
   }
 
   const filteredProducts = activeTab === "all" ? products : products.filter((product) => product.category === activeTab)
@@ -185,40 +184,28 @@ export default function FeaturedProducts() {
       <Tabs defaultValue="all" value={activeTab} onValueChange={setActiveTab} className="w-full">
         <div className="flex items-center justify-between">
           <TabsList className="bg-muted/50 p-1 rounded-xl">
-            <TabsTrigger
-              value="all"
-              className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-            >
+            <TabsTrigger value="all"
+              className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground" >
               All
             </TabsTrigger>
-            <TabsTrigger
-              value="fruits"
-              className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-            >
+            <TabsTrigger value="fruits"
+              className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground" >
               Fruits
             </TabsTrigger>
-            <TabsTrigger
-              value="vegetables"
-              className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-            >
+            <TabsTrigger value="vegetables"
+              className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground" >
               Vegetables
             </TabsTrigger>
-            <TabsTrigger
-              value="dairy"
-              className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-            >
+            <TabsTrigger value="dairy"
+              className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground" >
               Dairy
             </TabsTrigger>
-            <TabsTrigger
-              value="bakery"
-              className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-            >
+            <TabsTrigger value="bakery"
+              className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
               Bakery
             </TabsTrigger>
-            <TabsTrigger
-              value="meat"
-              className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-            >
+            <TabsTrigger value="meat"
+              className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground" >
               Meat
             </TabsTrigger>
           </TabsList>
@@ -227,14 +214,8 @@ export default function FeaturedProducts() {
         <TabsContent value="all" className="mt-6">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {filteredProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                isWishlisted={wishlist.includes(product.id)}
-                isInCart={cart.includes(product.id)}
-                onWishlistToggle={toggleWishlist}
-                onAddToCart={addToCart}
-              />
+              <ProductCard key={product.id} product={product} isWishlisted={wishlist.includes(product.id)}
+                isInCart={cart.includes(product.id)} onWishlistToggle={toggleWishlist} onAddToCart={addToCart} />
             ))}
           </div>
         </TabsContent>
@@ -274,11 +255,8 @@ function ProductCard({ product, isWishlisted, isInCart, onWishlistToggle, onAddT
 
   return (
     <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.2 }}>
-      <Card
-        className="overflow-hidden border border-border/50 transition-all duration-300 hover:border-primary/30 hover:shadow-md h-full"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
+      <Card className="overflow-hidden border border-border/50 transition-all duration-300 hover:border-primary/30 hover:shadow-md h-full"
+        onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
         <div className="relative">
           <Link href={`/product/${product.id}`}>
             <div className="aspect-square overflow-hidden bg-muted/50">
@@ -290,7 +268,6 @@ function ProductCard({ product, isWishlisted, isInCart, onWishlistToggle, onAddT
             </div>
           </Link>
 
-          {/* Badges */}
           <div className="absolute left-2 top-2 flex flex-col gap-1">
             {product.badge && (
               <Badge className="text-xs px-2 py-0.5 bg-primary text-primary-foreground">{product.badge}</Badge>
@@ -300,23 +277,15 @@ function ProductCard({ product, isWishlisted, isInCart, onWishlistToggle, onAddT
             )}
           </div>
 
-          {/* Quick actions */}
           <div className="absolute right-2 top-2 flex flex-col gap-1">
-            <Button
-              variant="secondary"
-              size="icon"
+            <Button variant="secondary" size="icon"
               className="h-7 w-7 rounded-full bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground"
-              onClick={() => onWishlistToggle(product.id)}
-            >
+              onClick={() => onWishlistToggle(product.id)}>
               <Heart className={`h-3.5 w-3.5 ${isWishlisted ? "fill-red-500 text-red-500" : ""}`} />
               <span className="sr-only">Add to wishlist</span>
             </Button>
-            <Button
-              variant="secondary"
-              size="icon"
-              className="h-7 w-7 rounded-full bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground"
-              asChild
-            >
+            <Button variant="secondary" size="icon" className="h-7 w-7 rounded-full bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground"
+              asChild>
               <Link href={`/product/${product.id}`}>
                 <Eye className="h-3.5 w-3.5" />
                 <span className="sr-only">Quick view</span>
@@ -354,9 +323,7 @@ function ProductCard({ product, isWishlisted, isInCart, onWishlistToggle, onAddT
         </CardContent>
 
         <CardFooter className="p-3 pt-0">
-          <Button
-            className={`w-full gap-1 text-xs h-8 ${
-              isInCart ? "bg-success hover:bg-success/90 text-success-foreground" : "bg-primary hover:bg-primary/90"
+          <Button className={`w-full gap-1 text-xs h-8 ${isInCart ? "bg-success hover:bg-success/90 text-success-foreground" : "bg-primary hover:bg-primary/90"
             }`}
             onClick={() => onAddToCart(product.id)}
             disabled={isInCart}
@@ -376,4 +343,3 @@ function ProductCard({ product, isWishlisted, isInCart, onWishlistToggle, onAddT
     </motion.div>
   )
 }
-

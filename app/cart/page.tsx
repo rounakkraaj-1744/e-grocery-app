@@ -1,11 +1,12 @@
 import Link from "next/link"
 import { ChevronLeft, Minus, Plus, ShoppingBag, Trash2 } from 'lucide-react'
-
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import ThemeToggle from "@/components/theme-toggle"
 
 export default function CartPage() {
+
+  //Mock cart items
   const cartItems = [
     {
       id: 1,

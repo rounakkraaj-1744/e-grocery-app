@@ -8,9 +8,10 @@ import { Separator } from "@/components/ui/separator"
 import DeliveryOptions from "@/components/checkout/delivery-options"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { motion, AnimatePresence } from "framer-motion"
-import { Badge } from "@/components/ui/badge"
 
 export default function CheckoutPage() {
+
+    //Mock cart items
     const [cartItems] = useState([
         {
             id: 1,
@@ -43,8 +44,7 @@ export default function CheckoutPage() {
         <div className="min-h-screen bg-background">
             <main className="container mx-auto px-4 py-8">
                 <div className="mb-8 flex items-center">
-                    <Link
-                        href="/cart"
+                    <Link href="/cart"
                         className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground"
                     >
                         <ChevronLeft className="h-4 w-4" />
@@ -72,13 +72,8 @@ export default function CheckoutPage() {
                                     <div className="max-h-[300px] overflow-auto">
                                         <AnimatePresence>
                                             {cartItems.map((item) => (
-                                                <motion.div
-                                                    key={item.id}
-                                                    initial={{ opacity: 0, y: 10 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    transition={{ duration: 0.2 }}
-                                                    className="p-4 border-b last:border-b-0"
-                                                >
+                                                <motion.div key={item.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+                                                    transition={{ duration: 0.2 }} className="p-4 border-b last:border-b-0" >
                                                     <div className="flex items-start gap-3">
                                                         <div className="h-16 w-16 overflow-hidden rounded-md bg-muted">
                                                             <img

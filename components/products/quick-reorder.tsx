@@ -69,7 +69,6 @@ export default function QuickReorder() {
 
   const handleReorder = () => {
     setIsReordering(true)
-    // Simulate API call
     setTimeout(() => {
       setIsReordering(false)
     }, 1500)
@@ -94,25 +93,17 @@ export default function QuickReorder() {
               Recent Orders
             </CardTitle>
             <div className="flex items-center gap-2">
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-8 w-8 border-primary/20 hover:bg-primary/5"
+              <Button variant="outline" size="icon" className="h-8 w-8 border-primary/20 hover:bg-primary/5"
                 onClick={() => setCurrentOrder((prev) => (prev > 0 ? prev - 1 : recentOrders.length - 1))}
-                disabled={recentOrders.length <= 1}
-              >
+                disabled={recentOrders.length <= 1}>
                 <ChevronLeft className="h-4 w-4" />
               </Button>
               <span className="text-sm text-muted-foreground">
                 {currentOrder + 1} / {recentOrders.length}
               </span>
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-8 w-8 border-primary/20 hover:bg-primary/5"
-                onClick={() => setCurrentOrder((prev) => (prev < recentOrders.length - 1 ? prev + 1 : 0))}
-                disabled={recentOrders.length <= 1}
-              >
+              <Button variant="outline" size="icon"
+                className="h-8 w-8 border-primary/20 hover:bg-primary/5" onClick={() => setCurrentOrder((prev) => (prev < recentOrders.length - 1 ? prev + 1 : 0))}
+                disabled={recentOrders.length <= 1}>
                 <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
@@ -135,19 +126,9 @@ export default function QuickReorder() {
 
           <div className="mb-4 space-y-4">
             {order.items.map((item) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="flex items-center gap-3"
-              >
+              <motion.div key={item.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="flex items-center gap-3">
                 <div className="h-12 w-12 overflow-hidden rounded-md bg-muted">
-                  <img
-                    src={item.image || "/placeholder.svg"}
-                    alt={item.name}
-                    className="h-full w-full object-cover"
-                  />
+                  <img src={item.image || "/placeholder.svg"} alt={item.name} className="h-full w-full object-cover"/>
                 </div>
                 <div className="flex-1">
                   <p className="text-sm font-medium line-clamp-1">{item.name}</p>
@@ -167,11 +148,7 @@ export default function QuickReorder() {
               <p className="text-sm font-medium">Total</p>
               <p className="text-lg font-bold">₹{order.total.toFixed(2)}</p>
             </div>
-            <Button
-              className="gap-2 bg-primary hover:bg-primary/90"
-              onClick={handleReorder}
-              disabled={isReordering}
-            >
+            <Button className="gap-2 bg-primary hover:bg-primary/90" onClick={handleReorder} disabled={isReordering}>
               {isReordering ? (
                 <>
                   <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />

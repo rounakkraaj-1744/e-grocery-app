@@ -55,30 +55,18 @@ export function AuthDialog() {
           <TabsContent value="register" className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="name">Full Name</Label>
-              <Input
-                id="name"
-                type="text"
-                placeholder="Enter your name"
-                className="border-primary/20 focus-visible:ring-primary/30"
-              />
+              <Input id="name" type="text" placeholder="Enter your name"
+                className="border-primary/20 focus-visible:ring-primary/30" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="register-email">Email</Label>
-              <Input
-                id="register-email"
-                type="email"
-                placeholder="Enter your email"
-                className="border-primary/20 focus-visible:ring-primary/30"
-              />
+              <Input id="register-email" type="email" placeholder="Enter your email"
+                className="border-primary/20 focus-visible:ring-primary/30"/>
             </div>
             <div className="space-y-2">
               <Label htmlFor="register-password">Password</Label>
-              <Input
-                id="register-password"
-                type="password"
-                placeholder="Create a password"
-                className="border-primary/20 focus-visible:ring-primary/30"
-              />
+              <Input id="register-password" type="password" placeholder="Create a password"
+                className="border-primary/20 focus-visible:ring-primary/30"/>
             </div>
             <Button className="w-full bg-gradient-to-r from-primary to-primary/90" disabled={isLoading}>
               {isLoading ? "Creating account..." : "Create Account"}
@@ -89,4 +77,3 @@ export function AuthDialog() {
     </Dialog>
   )
 }
-

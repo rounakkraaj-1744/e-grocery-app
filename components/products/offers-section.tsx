@@ -1,5 +1,4 @@
 "use client"
-
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
@@ -88,8 +87,7 @@ export default function OffersSection() {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
         {offers.map((offer, index) => (
           <motion.div key={offer.id} whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
-            <Card
-              className={`overflow-hidden border-2 border-transparent hover:border-primary/30 transition-all duration-300 ${offer.bgColor}`}
+            <Card className={`overflow-hidden border-2 border-transparent hover:border-primary/30 transition-all duration-300 ${offer.bgColor}`}
             >
               <CardContent className="p-4">
                 <div className="flex items-center justify-between mb-3">
@@ -148,4 +146,3 @@ export default function OffersSection() {
     </div>
   )
 }
-

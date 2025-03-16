@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Clock, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
+// Mock Promotions
 const promos = [
   {
     id: 1,
@@ -65,9 +66,9 @@ export default function PromoBanner() {
         const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
 
         setTimeLeft(`${days}d ${hours}h left`)
-      } else {
-        setTimeLeft("Expired")
       }
+      else 
+        setTimeLeft("Expired")
     }
 
     calculateTimeLeft()
@@ -81,14 +82,8 @@ export default function PromoBanner() {
   return (
     <div className="relative overflow-hidden rounded-2xl">
       <AnimatePresence mode="wait">
-        <motion.div
-          key={promo.id}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="relative"
-        >
+        <motion.div key={promo.id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }} className="relative">
           <div className="relative aspect-[21/9] overflow-hidden">
             <img src={promo.image || "/placeholder.svg"} alt={promo.title} className="h-full w-full object-cover" />
             <div className={`absolute inset-0 bg-gradient-to-r ${promo.color} mix-blend-multiply`} />
@@ -96,20 +91,14 @@ export default function PromoBanner() {
 
           <div className="absolute inset-0 flex items-center">
             <div className="w-full px-6 md:px-12 lg:w-2/3">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-                className="space-y-4"
-              >
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }}
+                className="space-y-4">
                 <Badge className="bg-white text-foreground dark:bg-white dark:text-foreground">{promo.badge}</Badge>
                 <h2 className={`text-2xl font-bold ${promo.textColor} md:text-4xl`}>{promo.title}</h2>
                 <p className={`${promo.textColor} md:text-lg`}>{promo.description}</p>
 
                 <div className="flex items-center gap-4">
-                  <Button
-                    asChild
-                    size="lg"
+                  <Button asChild size="lg"
                     className="bg-white text-foreground hover:bg-white/90 dark:bg-white dark:text-foreground dark:hover:bg-white/90"
                   >
                     <Link href={promo.link}>
@@ -129,14 +118,10 @@ export default function PromoBanner() {
 
       <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
         {promos.map((_, index) => (
-          <button
-            key={index}
-            className={`h-2 w-2 rounded-full transition-all ${currentPromo === index ? "w-8 bg-white" : "bg-white/50"}`}
-            onClick={() => setCurrentPromo(index)}
-          />
+          <button key={index} className={`h-2 w-2 rounded-full transition-all ${currentPromo === index ? "w-8 bg-white" : "bg-white/50"}`}
+            onClick={() => setCurrentPromo(index)}/>
         ))}
       </div>
     </div>
   )
 }
-

@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 
+//Mock categories
 const categories = [
   {
     id: "fruits-vegetables",
@@ -85,14 +86,8 @@ export default function CategorySection() {
   return (
     <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
       {categories.map((category) => (
-        <motion.div
-          key={category.id}
-          whileHover={{ y: -5 }}
-          transition={{ duration: 0.3 }}
-          onMouseEnter={() => setHoveredId(category.id)}
-          onMouseLeave={() => setHoveredId(null)}
-          className="group"
-        >
+        <motion.div key={category.id} whileHover={{ y: -5 }} transition={{ duration: 0.3 }} onMouseEnter={() => setHoveredId(category.id)}
+          onMouseLeave={() => setHoveredId(null)} className="group">
           <Link href={`/categories/${category.id}`} className="block h-full">
             <div className="flex flex-col items-center text-center">
               <div className="w-full aspect-square overflow-hidden rounded-xl mb-2 border border-border/50 group-hover:border-primary/30 transition-colors shadow-sm group-hover:shadow-md">
@@ -118,4 +113,3 @@ export default function CategorySection() {
     </div>
   )
 }
-

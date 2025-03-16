@@ -1,19 +1,5 @@
 import Link from "next/link"
-import {
-  ShoppingBag,
-  Facebook,
-  Twitter,
-  Instagram,
-  Youtube,
-  Mail,
-  Phone,
-  MapPin,
-  CreditCard,
-  Shield,
-  Truck,
-  Clock,
-  Leaf,
-} from "lucide-react"
+import {ShoppingBag, Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, CreditCard, Shield, Truck, Clock, Leaf} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
@@ -33,35 +19,20 @@ export function Footer() {
               produce, pantry essentials, and specialty items with fast delivery and exceptional service.
             </p>
             <div className="flex items-center gap-4 mb-6">
-              <Button
-                variant="outline"
-                size="icon"
-                className="rounded-full h-8 w-8 border-primary/20 hover:bg-primary/10 hover:text-primary"
-              >
+              <Button variant="outline" size="icon" className="rounded-full h-8 w-8 border-primary/20 hover:bg-primary/10 hover:text-primary">
                 <Facebook className="h-4 w-4" />
                 <span className="sr-only">Facebook</span>
               </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                className="rounded-full h-8 w-8 border-primary/20 hover:bg-primary/10 hover:text-primary"
-              >
+              <Button variant="outline" size="icon"
+                className="rounded-full h-8 w-8 border-primary/20 hover:bg-primary/10 hover:text-primary">
                 <Twitter className="h-4 w-4" />
                 <span className="sr-only">Twitter</span>
               </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                className="rounded-full h-8 w-8 border-primary/20 hover:bg-primary/10 hover:text-primary"
-              >
+              <Button variant="outline" size="icon" className="rounded-full h-8 w-8 border-primary/20 hover:bg-primary/10 hover:text-primary">
                 <Instagram className="h-4 w-4" />
                 <span className="sr-only">Instagram</span>
               </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                className="rounded-full h-8 w-8 border-primary/20 hover:bg-primary/10 hover:text-primary"
-              >
+              <Button variant="outline" size="icon" className="rounded-full h-8 w-8 border-primary/20 hover:bg-primary/10 hover:text-primary">
                 <Youtube className="h-4 w-4" />
                 <span className="sr-only">YouTube</span>
               </Button>
@@ -86,18 +57,12 @@ export function Footer() {
             <h3 className="font-bold mb-4">Categories</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link
-                  href="/categories/fruits-vegetables"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
+                <Link href="/categories/fruits-vegetables" className="text-muted-foreground hover:text-primary transition-colors">
                   Fruits & Vegetables
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/categories/dairy-eggs"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
+                <Link href="/categories/dairy-eggs" className="text-muted-foreground hover:text-primary transition-colors">
                   Dairy & Eggs
                 </Link>
               </li>
@@ -107,26 +72,17 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/categories/meat-seafood"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
+                <Link href="/categories/meat-seafood" className="text-muted-foreground hover:text-primary transition-colors">
                   Meat & Seafood
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/categories/pantry-staples"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
+                <Link href="/categories/pantry-staples" className="text-muted-foreground hover:text-primary transition-colors">
                   Pantry Staples
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/categories/beverages"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
+                <Link href="/categories/beverages" className="text-muted-foreground hover:text-primary transition-colors">
                   Beverages
                 </Link>
               </li>
@@ -175,11 +131,7 @@ export function Footer() {
               Subscribe to our newsletter for the latest offers and updates.
             </p>
             <div className="space-y-2">
-              <Input
-                type="email"
-                placeholder="Your email address"
-                className="border-primary/20 focus-visible:ring-primary/30"
-              />
+              <Input type="email" placeholder="Your email address" className="border-primary/20 focus-visible:ring-primary/30" />
               <Button className="w-full bg-primary hover:bg-primary/90">Subscribe</Button>
             </div>
 
@@ -187,32 +139,20 @@ export function Footer() {
               <h3 className="font-bold mb-3">We Accept</h3>
               <div className="flex flex-wrap gap-2">
                 <div className="bg-card rounded-md p-1 border">
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/100px-Mastercard-logo.svg.png"
-                    alt="Mastercard"
-                    className="h-6"
-                  />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/100px-Mastercard-logo.svg.png"
+                    alt="Mastercard" className="h-6"/>
                 </div>
                 <div className="bg-card rounded-md p-1 border">
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/100px-Visa_Inc._logo.svg.png"
-                    alt="Visa"
-                    className="h-6"
-                  />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/100px-Visa_Inc._logo.svg.png"
+                    alt="Visa" className="h-6"/>
                 </div>
                 <div className="bg-card rounded-md p-1 border">
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/100px-American_Express_logo_%282018%29.svg.png"
-                    alt="American Express"
-                    className="h-6"
-                  />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/100px-American_Express_logo_%282018%29.svg.png"
+                    alt="American Express" className="h-6" />
                 </div>
                 <div className="bg-card rounded-md p-1 border">
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/100px-PayPal.svg.png"
-                    alt="PayPal"
-                    className="h-6"
-                  />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/100px-PayPal.svg.png"
+                    alt="PayPal" className="h-6"/>
                 </div>
               </div>
             </div>

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 }
 
 export default function ProductPage({ params }: { params: { id: string } }) {
-  // This would normally fetch product data based on the ID
+  //Mock product data
   const product = {
     id: params.id,
     name: "Organic Fresh Avocado",
@@ -58,7 +58,6 @@ export default function ProductPage({ params }: { params: { id: string } }) {
     <div className="min-h-screen bg-background">
 
       <main className="container py-8">
-        {/* Breadcrumbs */}
         <nav className="mb-6 flex items-center gap-1 text-sm text-muted-foreground">
           <Link href="/" className="hover:text-foreground">Home</Link>
           <ChevronRight className="h-4 w-4" />
@@ -72,7 +71,6 @@ export default function ProductPage({ params }: { params: { id: string } }) {
         </nav>
 
         <div className="grid gap-8 md:grid-cols-2">
-          {/* Product Images */}
           <div className="space-y-4">
             <div className="overflow-hidden rounded-lg border bg-muted/50">
               <img
@@ -94,7 +92,6 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             </div>
           </div>
 
-          {/* Product Details */}
           <div className="space-y-6">
             <div>
               <div className="flex flex-wrap items-center gap-2">
@@ -216,7 +213,6 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           </div>
         </div>
 
-        {/* Product Tabs */}
         <div className="mt-12">
           <Tabs defaultValue="description" className="w-full">
             <TabsList className="w-full justify-start border-b pb-px">
@@ -330,7 +326,6 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 <Separator />
                 
                 <div className="space-y-6">
-                  {/* Sample reviews */}
                   <div className="space-y-4">
                     <div className="flex items-start justify-between">
                       <div>
@@ -392,18 +387,13 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           </Tabs>
         </div>
         
-        {/* Related Products */}
         <div className="mt-12">
           <h2 className="mb-6 text-2xl font-bold gradient-text">You May Also Like</h2>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
-            {/* Sample related products */}
             <div className="rounded-lg border transition-all hover:border-primary/30 hover:shadow-md">
               <div className="aspect-square overflow-hidden rounded-t-lg bg-muted/50">
-                <img
-                  src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?q=80&w=300&auto=format&fit=crop"
-                  alt="Fresh Strawberries"
-                  className="h-full w-full object-cover transition-transform hover:scale-110"
-                />
+                <img  src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?q=80&w=300&auto=format&fit=crop"
+                  alt="Fresh Strawberries" className="h-full w-full object-cover transition-transform hover:scale-110"/>
               </div>
               <div className="p-4">
                 <h3 className="font-medium">Fresh Strawberries (250g)</h3>

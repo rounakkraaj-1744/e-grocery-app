@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Star, ShoppingCart, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
 
+// Mock recently view items
 const recentlyViewed = [
   {
     id: 1,
@@ -87,9 +88,8 @@ export default function RecentlyViewed() {
   const itemsToShow = 5
 
   const addToCart = (id: number) => {
-    if (!cart.includes(id)) {
+    if (!cart.includes(id))
       setCart((prev) => [...prev, id])
-    }
   }
 
   const visibleItems = recentlyViewed.slice(startIndex, startIndex + itemsToShow)
@@ -101,22 +101,15 @@ export default function RecentlyViewed() {
       <div className="mb-6 flex items-center justify-between">
         <h2 className="section-title">Recently Viewed</h2>
         <div className="flex items-center gap-2">
-          <Button
-            variant="outline"
-            size="icon"
-            className="h-8 w-8 border-primary/20 hover:bg-primary/5"
+          <Button variant="outline" size="icon" className="h-8 w-8 border-primary/20 hover:bg-primary/5"
             onClick={() => setStartIndex((prev) => Math.max(0, prev - 1))}
-            disabled={!canScrollLeft}
-          >
+            disabled={!canScrollLeft}>
             <ChevronLeft className="h-4 w-4" />
           </Button>
-          <Button
-            variant="outline"
-            size="icon"
+          <Button variant="outline" size="icon"
             className="h-8 w-8 border-primary/20 hover:bg-primary/5"
             onClick={() => setStartIndex((prev) => Math.min(recentlyViewed.length - itemsToShow, prev + 1))}
-            disabled={!canScrollRight}
-          >
+            disabled={!canScrollRight} >
             <ChevronRight className="h-4 w-4" />
           </Button>
         </div>
@@ -124,22 +117,14 @@ export default function RecentlyViewed() {
 
       <div className="grid grid-cols-5 gap-4">
         {visibleItems.map((product) => (
-          <motion.div
-            key={product.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            whileHover={{ y: -5 }}
-          >
+          <motion.div key={product.id} initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} whileHover={{ y: -5 }}>
             <Card className="overflow-hidden border border-border/50 transition-all duration-300 hover:border-primary/30 hover:shadow-md h-full">
               <div className="relative">
                 <Link href={`/product/${product.id}`}>
                   <div className="aspect-square overflow-hidden bg-muted/50">
-                    <img
-                      src={product.image || "/placeholder.svg"}
-                      alt={product.name}
-                      className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
-                    />
+                    <img src={product.image || "/placeholder.svg"} alt={product.name}
+                      className="h-full w-full object-cover transition-transform duration-500 hover:scale-110" />
                   </div>
                 </Link>
 
@@ -169,11 +154,8 @@ export default function RecentlyViewed() {
                   )}
                 </div>
 
-                <Button
-                  className="mt-2 w-full gap-1 text-xs h-8 bg-primary hover:bg-primary/90"
-                  onClick={() => addToCart(product.id)}
-                  disabled={cart.includes(product.id)}
-                >
+                <Button className="mt-2 w-full gap-1 text-xs h-8 bg-primary hover:bg-primary/90"
+                  onClick={() => addToCart(product.id)} disabled={cart.includes(product.id)}>
                   {cart.includes(product.id) ? (
                     "Added to Cart"
                   ) : (
@@ -190,4 +172,3 @@ export default function RecentlyViewed() {
     </div>
   )
 }
-

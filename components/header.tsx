@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { ShoppingBag, Menu, X, Search } from "lucide-react"
@@ -25,8 +24,7 @@ export function Header() {
   }, [])
 
   return (
-    <header
-      className={`sticky flex items-center justify-center top-0 z-40 w-full transition-all duration-300 ${
+    <header className={`sticky flex items-center justify-center top-0 z-40 w-full transition-all duration-300 ${
         isScrolled ? "bg-background/95 backdrop-blur shadow-sm" : "bg-background"
       }`}
     >
@@ -46,10 +44,8 @@ export function Header() {
                   <span className="text-xl font-bold gradient-text">FreshCart</span>
                 </Link>
                 <nav className="flex flex-col gap-4">
-                  <Link
-                    href="/account"
-                    className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
-                  >
+                  <Link href="/account"
+                    className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
                     <span className="text-lg font-medium">My Account</span>
                   </Link>
                 </nav>
@@ -66,35 +62,17 @@ export function Header() {
         <div className="flex items-center gap-3">
           <AnimatePresence>
             {isSearchOpen ? (
-              <motion.div
-                initial={{ width: 0, opacity: 0 }}
-                animate={{ width: "300px", opacity: 1 }}
-                exit={{ width: 0, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="relative hidden md:block"
-              >
-                <Input
-                  type="search"
-                  placeholder="Search for products..."
-                  className="w-full pr-8 border-primary/20 focus-visible:ring-primary/30"
-                  autoFocus
-                />
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="absolute right-0 top-0 h-10 w-10"
-                  onClick={() => setIsSearchOpen(false)}
-                >
+              <motion.div initial={{ width: 0, opacity: 0 }} animate={{ width: "300px", opacity: 1 }} exit={{ width: 0, opacity: 0 }}
+                transition={{ duration: 0.3 }} className="relative hidden md:block">
+                <Input type="search" placeholder="Search for products..." className="w-full pr-8 border-primary/20 focus-visible:ring-primary/30"
+                  autoFocus />
+                <Button variant="ghost" size="icon" className="absolute right-0 top-0 h-10 w-10" onClick={() => setIsSearchOpen(false)}>
                   <X className="h-4 w-4" />
                 </Button>
               </motion.div>
             ) : (
-              <Button
-                variant="ghost"
-                size="icon"
-                className="hidden md:flex hover:bg-primary/10 hover:text-primary"
-                onClick={() => setIsSearchOpen(true)}
-              >
+              <Button variant="ghost" size="icon" className="hidden md:flex hover:bg-primary/10 hover:text-primary"
+                onClick={() => setIsSearchOpen(true)}>
                 <Search className="h-5 w-5" />
               </Button>
             )}

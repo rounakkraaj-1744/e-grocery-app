@@ -1,7 +1,5 @@
 "use client"
-
 import type React from "react"
-
 import { useState, useEffect, useRef } from "react"
 import { Search, X } from "lucide-react"
 import { Input } from "@/components/ui/input"
@@ -54,7 +52,6 @@ export default function SearchBar() {
   useEffect(() => {
     if (query.length > 1) {
       setIsSearching(true)
-      // Simulate API call
       const timer = setTimeout(() => {
         const filtered = mockProducts.filter(
           (product) =>
@@ -66,18 +63,16 @@ export default function SearchBar() {
       }, 300)
 
       return () => clearTimeout(timer)
-    } else {
-      setResults([])
     }
+    else
+      setResults([])
   }, [query])
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node))
         setIsFocused(false)
-      }
     }
-
     document.addEventListener("mousedown", handleClickOutside)
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
@@ -85,29 +80,18 @@ export default function SearchBar() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     console.log("Searching for:", query)
-    // Implement search functionality
   }
 
   return (
     <div className="relative w-full" ref={searchRef}>
       <form onSubmit={handleSearch} className="relative">
         <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
-        <Input
-          type="search"
-          placeholder="Search for groceries..."
-          className="pl-10 pr-10 border-primary/20 focus-visible:ring-primary/30 h-12 text-base"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onFocus={() => setIsFocused(true)}
-        />
+        <Input type="search" placeholder="Search for groceries..."
+          className="pl-10 pr-10 border-primary/20 focus-visible:ring-primary/30 h-12 text-base" value={query}
+          onChange={(e) => setQuery(e.target.value)} onFocus={() => setIsFocused(true)} />
         {query && (
-          <Button
-            type="button"
-            variant="ghost"
-            size="icon"
-            className="absolute right-0 top-0 h-full aspect-square"
-            onClick={() => setQuery("")}
-          >
+          <Button type="button" variant="ghost" size="icon" className="absolute right-0 top-0 h-full aspect-square"
+            onClick={() => setQuery("")}>
             <X className="h-4 w-4" />
             <span className="sr-only">Clear search</span>
           </Button>
@@ -116,13 +100,8 @@ export default function SearchBar() {
 
       <AnimatePresence>
         {isFocused && query.length > 1 && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{ duration: 0.2 }}
-            className="absolute z-10 mt-1 w-full"
-          >
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }}
+            transition={{ duration: 0.2 }} className="absolute z-10 mt-1 w-full">
             <Card className="overflow-hidden border-primary/20 shadow-lg">
               <div className="p-2">
                 {isSearching ? (
@@ -132,30 +111,22 @@ export default function SearchBar() {
                   </div>
                 ) : results.length > 0 ? (
                   <div className="max-h-[300px] overflow-auto">
-                    {results.map((product) => (
-                      <Link
-                        key={product.id}
-                        href={`/product/${product.id}`}
-                        className="flex items-center gap-3 rounded-md p-2 hover:bg-muted transition-colors"
-                        onClick={() => setIsFocused(false)}
-                      >
-                        <div className="h-10 w-10 overflow-hidden rounded-md bg-muted">
-                          <img
-                            src={product.image || "/placeholder.svg"}
-                            alt={product.name}
-                            className="h-full w-full object-cover"
-                          />
-                        </div>
-                        <div>
-                          <p className="font-medium">{product.name}</p>
-                          <p className="text-xs text-muted-foreground">{product.category}</p>
-                        </div>
-                      </Link>
-                    ))}
+                    {
+                      results.map((product) => (
+                        <Link key={product.id} href={`/product/${product.id}`}
+                          className="flex items-center gap-3 rounded-md p-2 hover:bg-muted transition-colors"
+                          onClick={() => setIsFocused(false)}>
+                          <div className="h-10 w-10 overflow-hidden rounded-md bg-muted">
+                            <img src={product.image || "/placeholder.svg"} alt={product.name} className="h-full w-full object-cover"/>
+                          </div>
+                          <div>
+                            <p className="font-medium">{product.name}</p>
+                            <p className="text-xs text-muted-foreground">{product.category}</p>
+                          </div>
+                        </Link>
+                      ))}
                   </div>
-                ) : (
-                  <div className="p-4 text-center text-sm text-muted-foreground">No results found for "{query}"</div>
-                )}
+                ) : ( <div className="p-4 text-center text-sm text-muted-foreground">No results found for "{query}"</div> )}
               </div>
             </Card>
           </motion.div>
@@ -164,4 +135,3 @@ export default function SearchBar() {
     </div>
   )
 }
-
