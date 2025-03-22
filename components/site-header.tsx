@@ -37,17 +37,7 @@ export function SiteHeader() {
                     </span>
                 </Link>
 
-                <div className="flex-1 flex items-center">
-                    <div className="relative w-full max-w-md">
-                        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                        <Input type="search" placeholder="Search for products" className="w-full pl-10 border-primary/20 focus-visible:ring-primary/30"/>
-                    </div>
-
-                    <Button variant="ghost" size="icon" className="ml-2">
-                        <MapPin className="h-5 w-5" />
-                        <span className="sr-only">Location</span>
-                    </Button>
-                </div>
+                
 
                 <div className="flex items-center space-x-1">
                     <AuthModal />
