@@ -70,14 +70,12 @@ export function Header() {
             </Button>
           </div>
 
-
-
           <Link href="/account" className="hidden md:block">
             <Button variant="ghost" className="hover:bg-primary/10 hover:text-primary">
               My Account
             </Button>
           </Link>
-
+          
           <AuthModal />
           <ThemeToggle />
           <CartSidebar />
