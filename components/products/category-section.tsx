@@ -1,10 +1,12 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { motion } from "framer-motion"
 
-//Mock categories
+// Mock categories
 const categories = [
   {
     id: "fruits-vegetables",
@@ -81,35 +83,84 @@ const categories = [
 ]
 
 export default function CategorySection() {
-  const [hoveredId, setHoveredId] = useState<string | null>(null)
+  const [startIndex, setStartIndex] = useState(0)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const itemsToShow = 6
+
+  const nextSlide = () => {
+    if (startIndex + itemsToShow < categories.length) {
+      setStartIndex(startIndex + 1)
+    }
+  }
+
+  const prevSlide = () => {
+    if (startIndex > 0) {
+      setStartIndex(startIndex - 1)
+    }
+  }
+
+  const visibleCategories = categories.slice(startIndex, startIndex + itemsToShow)
+  const canScrollLeft = startIndex > 0
+  const canScrollRight = startIndex + itemsToShow < categories.length
 
   return (
-    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
-      {categories.map((category) => (
-        <motion.div key={category.id} whileHover={{ y: -5 }} transition={{ duration: 0.3 }} onMouseEnter={() => setHoveredId(category.id)}
-          onMouseLeave={() => setHoveredId(null)} className="group">
-          <Link href={`/categories/${category.id}`} className="block h-full">
-            <div className="flex flex-col items-center text-center">
-              <div className="w-full aspect-square overflow-hidden rounded-xl mb-2 border border-border/50 group-hover:border-primary/30 transition-colors shadow-sm group-hover:shadow-md">
-                <div className="w-full h-full relative">
-                  <img
-                    src={category.image || "/placeholder.svg"}
-                    alt={category.name}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute bottom-2 left-0 right-0 text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {category.items} items
+    <div className="relative">
+      <div className="mb-6 flex items-center justify-between">
+        <h2 className="text-2xl font-bold">Featured Categories</h2>
+        <div className="flex items-center gap-2">
+          <Button
+            variant="outline"
+            size="icon"
+            className="h-8 w-8 rounded-full border-primary/20 hover:bg-primary/5"
+            onClick={prevSlide}
+            disabled={!canScrollLeft}
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            className="h-8 w-8 rounded-full border-primary/20 hover:bg-primary/5"
+            onClick={nextSlide}
+            disabled={!canScrollRight}
+          >
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </div>
+      </div>
+
+      <div ref={containerRef} className="grid grid-cols-6 gap-4 overflow-hidden">
+        {visibleCategories.map((category) => (
+          <motion.div
+            key={category.id}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3 }}
+            className="group"
+          >
+            <Link href={`/categories/${category.id}`} className="block h-full">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-full aspect-square overflow-hidden rounded-xl mb-2 border border-border/50 group-hover:border-primary/30 transition-colors shadow-sm group-hover:shadow-md">
+                  <div className="w-full h-full relative">
+                    <img
+                      src={category.image || "/placeholder.svg"}
+                      alt={category.name}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute bottom-2 left-0 right-0 text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {category.items} items
+                    </div>
                   </div>
                 </div>
+                <h3 className="text-sm font-medium line-clamp-2 group-hover:text-primary transition-colors">
+                  {category.name}
+                </h3>
               </div>
-              <h3 className="text-sm font-medium line-clamp-2 group-hover:text-primary transition-colors">
-                {category.name}
-              </h3>
-            </div>
-          </Link>
-        </motion.div>
-      ))}
+            </Link>
+          </motion.div>
+        ))}
+      </div>
     </div>
   )
 }
