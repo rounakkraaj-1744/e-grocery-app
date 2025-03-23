@@ -22,7 +22,9 @@ export default function Home() {
             <div className="space-y-12">
               <CategorySection />
               <FeaturedProducts />
-              <OffersSection />
+
+              {/*Removed the offers section component temporarily*/}
+              {/* <OffersSection /> */}
             </div>
           </div>
         </main>
