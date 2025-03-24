@@ -110,7 +110,7 @@ export default function AccountPage() {
                   <Heart className="h-5 w-5" /> Wishlist
                   <Badge className="ml-auto">8</Badge>
                 </Link>
-                <Link href="/account/payment" className="flex items-center gap-3 p-3 border-t hover:bg-muted/50 group">
+                <Link href="/checkout/payment" className="flex items-center gap-3 p-3 border-t hover:bg-muted/50 group">
                   <CreditCard className="h-5 w-5" /> Payment Methods
                   <ChevronRight className="h-4 w-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
