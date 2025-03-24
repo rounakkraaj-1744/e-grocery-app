@@ -82,7 +82,7 @@ const categories = [
   {
     id: "baby-care",
     name: "Baby Care",
-    image: "https://cdn.pixabay.com/photo/2016/11/29/06/15/baby-clothes-1867800_1280.jpg",
+    image: "https://cdn.pixabay.com/photo/2017/06/18/18/39/baby-2416718_1280.jpg",
     items: 56,
     subcategories: [
       { id: "baby-food", name: "Baby Food", count: 15 },
