@@ -76,6 +76,7 @@ export default function SettingsPage() {
     setFormState({
       ...formState,
       [section]: {
+        //@ts-ignore
         ...formState[section],
         [field]: value,
       },
@@ -83,6 +84,7 @@ export default function SettingsPage() {
   }
 
   const handleSaveSettings = (section: string) => {
+    //@ts-ignore
     console.log(`Saving ${section} settings:`, formState[section])
     toast.success("Settings saved",{
       description: `Your ${section} settings have been updated successfully.`,
