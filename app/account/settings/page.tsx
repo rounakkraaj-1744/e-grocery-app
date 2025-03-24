@@ -1,5 +1,4 @@
 "use client"
-
 import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -13,42 +12,15 @@ import { Separator } from "@/components/ui/separator"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { useToast } from "@/components/ui/use-toast"
-import {
-  User,
-  Package,
-  Heart,
-  CreditCard,
-  MapPin,
-  Bell,
-  LogOut,
-  Edit,
-  Settings,
-  Gift,
-  ChevronRight,
-  HelpCircle,
-  Phone,
-  Mail,
-  Lock,
-  Eye,
-  EyeOff,
-  Moon,
-  Sun,
-  BellRing,
-  Trash2,
-  AlertTriangle,
-  ShieldAlert,
-  UserCog,
-  Palette,
-  Laptop,
-} from "lucide-react"
+import { toast } from "sonner"
+import { User, Package, Heart, CreditCard, MapPin, Bell, LogOut, Edit, Settings, Gift, ChevronRight, HelpCircle, Phone, Mail, Lock, Eye, EyeOff,
+  Moon, Sun, BellRing, Trash2, AlertTriangle, ShieldAlert, UserCog, Palette, Laptop} from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Progress } from "@/components/ui/progress"
 import { useEffect } from "react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 export default function SettingsPage() {
-  const { toast } = useToast()
   const [activeTab, setActiveTab] = useState("account")
   const [showPassword, setShowPassword] = useState(false)
   const [showCurrentPassword, setShowCurrentPassword] = useState(false)
@@ -92,7 +64,6 @@ export default function SettingsPage() {
     },
   })
 
-  // Toggle dark mode
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark")
@@ -101,7 +72,7 @@ export default function SettingsPage() {
     }
   }, [darkMode])
 
-  const handleInputChange = (section, field, value) => {
+  const handleInputChange = (section: string, field: string, value: string | boolean) => {
     setFormState({
       ...formState,
       [section]: {
@@ -111,20 +82,15 @@ export default function SettingsPage() {
     })
   }
 
-  const handleSaveSettings = (section) => {
-    // In a real app, this would send the data to an API
+  const handleSaveSettings = (section: string) => {
     console.log(`Saving ${section} settings:`, formState[section])
-    toast({
-      title: "Settings saved",
+    toast.success("Settings saved",{
       description: `Your ${section} settings have been updated successfully.`,
     })
   }
 
   const handleDeleteAccount = () => {
-    // In a real app, this would show a confirmation dialog and then call an API
-    toast({
-      variant: "destructive",
-      title: "Account deletion requested",
+    toast.success("Account deletion requested",{
       description: "We've sent a confirmation email. Please follow the instructions to delete your account.",
     })
   }
@@ -324,7 +290,6 @@ export default function SettingsPage() {
                     </TabsTrigger>
                   </TabsList>
 
-                  {/* Account Settings */}
                   <TabsContent value="account" className="space-y-6">
                     <div className="space-y-4">
                       <h3 className="text-lg font-medium">Profile Information</h3>
@@ -364,13 +329,8 @@ export default function SettingsPage() {
                         </div>
                         <div className="space-y-2 md:col-span-2">
                           <Label htmlFor="bio">Bio</Label>
-                          <Textarea
-                            id="bio"
-                            placeholder="Tell us about yourself"
-                            className="min-h-[100px]"
-                            value={formState.profile.bio}
-                            onChange={(e) => handleInputChange("profile", "bio", e.target.value)}
-                          />
+                          <Textarea id="bio" placeholder="Tell us about yourself" className="min-h-[100px]" value={formState.profile.bio}
+                            onChange={(e: { target: { value: any } }) => handleInputChange("profile", "bio", e.target.value)}/>
                         </div>
                       </div>
                     </div>
@@ -402,7 +362,6 @@ export default function SettingsPage() {
                     </div>
                   </TabsContent>
 
-                  {/* Security Settings */}
                   <TabsContent value="security" className="space-y-6">
                     <div className="space-y-4">
                       <h3 className="text-lg font-medium">Change Password</h3>
@@ -416,12 +375,8 @@ export default function SettingsPage() {
                               value={formState.security.currentPassword}
                               onChange={(e) => handleInputChange("security", "currentPassword", e.target.value)}
                             />
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              className="absolute right-0 top-0 h-full"
-                              onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-                            >
+                            <Button variant="ghost" size="icon" className="absolute right-0 top-0 h-full"
+                              onClick={() => setShowCurrentPassword(!showCurrentPassword)} >
                               {showCurrentPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                             </Button>
                           </div>
@@ -429,30 +384,16 @@ export default function SettingsPage() {
                         <div className="space-y-2">
                           <Label htmlFor="newPassword">New Password</Label>
                           <div className="relative">
-                            <Input
-                              id="newPassword"
-                              type={showPassword ? "text" : "password"}
-                              value={formState.security.newPassword}
-                              onChange={(e) => handleInputChange("security", "newPassword", e.target.value)}
-                            />
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              className="absolute right-0 top-0 h-full"
-                              onClick={() => setShowPassword(!showPassword)}
-                            >
+                            <Input id="newPassword" type={showPassword ? "text" : "password"} value={formState.security.newPassword} onChange={(e) => handleInputChange("security", "newPassword", e.target.value)} />
+                            <Button variant="ghost" size="icon" className="absolute right-0 top-0 h-full" onClick={() => setShowPassword(!showPassword)}>
                               {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                             </Button>
                           </div>
                         </div>
                         <div className="space-y-2">
                           <Label htmlFor="confirmPassword">Confirm New Password</Label>
-                          <Input
-                            id="confirmPassword"
-                            type="password"
-                            value={formState.security.confirmPassword}
-                            onChange={(e) => handleInputChange("security", "confirmPassword", e.target.value)}
-                          />
+                          <Input id="confirmPassword" type="password" value={formState.security.confirmPassword}
+                            onChange={(e) => handleInputChange("security", "confirmPassword", e.target.value)} />
                         </div>
                       </div>
                     </div>
@@ -468,10 +409,8 @@ export default function SettingsPage() {
                             Add an extra layer of security to your account
                           </p>
                         </div>
-                        <Switch
-                          checked={formState.security.twoFactorEnabled}
-                          onCheckedChange={(checked) => handleInputChange("security", "twoFactorEnabled", checked)}
-                        />
+                        <Switch checked={formState.security.twoFactorEnabled}
+                          onCheckedChange={(checked) => handleInputChange("security", "twoFactorEnabled", checked)} />
                       </div>
                     </div>
 
@@ -487,10 +426,8 @@ export default function SettingsPage() {
                               Receive notifications for new login attempts
                             </p>
                           </div>
-                          <Switch
-                            checked={formState.security.loginNotifications}
-                            onCheckedChange={(checked) => handleInputChange("security", "loginNotifications", checked)}
-                          />
+                          <Switch checked={formState.security.loginNotifications}
+                            onCheckedChange={(checked) => handleInputChange("security", "loginNotifications", checked)}/>
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="space-y-0.5">
@@ -511,7 +448,6 @@ export default function SettingsPage() {
                     </div>
                   </TabsContent>
 
-                  {/* Notification Settings */}
                   <TabsContent value="notifications" className="space-y-6">
                     <div className="space-y-4">
                       <h3 className="text-lg font-medium">Notification Channels</h3>
@@ -521,36 +457,30 @@ export default function SettingsPage() {
                             <Label>Email Notifications</Label>
                             <p className="text-sm text-muted-foreground">Receive notifications via email</p>
                           </div>
-                          <Switch
-                            checked={formState.notifications.emailNotifications}
+                          <Switch checked={formState.notifications.emailNotifications}
                             onCheckedChange={(checked) =>
                               handleInputChange("notifications", "emailNotifications", checked)
-                            }
-                          />
+                            } />
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="space-y-0.5">
                             <Label>SMS Notifications</Label>
                             <p className="text-sm text-muted-foreground">Receive notifications via SMS</p>
                           </div>
-                          <Switch
-                            checked={formState.notifications.smsNotifications}
+                          <Switch checked={formState.notifications.smsNotifications}
                             onCheckedChange={(checked) =>
                               handleInputChange("notifications", "smsNotifications", checked)
-                            }
-                          />
+                            }/>
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="space-y-0.5">
                             <Label>Push Notifications</Label>
                             <p className="text-sm text-muted-foreground">Receive push notifications on your devices</p>
                           </div>
-                          <Switch
-                            checked={formState.notifications.pushNotifications}
+                          <Switch checked={formState.notifications.pushNotifications}
                             onCheckedChange={(checked) =>
                               handleInputChange("notifications", "pushNotifications", checked)
-                            }
-                          />
+                            }/>
                         </div>
                       </div>
                     </div>
@@ -565,10 +495,8 @@ export default function SettingsPage() {
                             <Label>Order Updates</Label>
                             <p className="text-sm text-muted-foreground">Notifications about your orders</p>
                           </div>
-                          <Switch
-                            checked={formState.notifications.orderUpdates}
-                            onCheckedChange={(checked) => handleInputChange("notifications", "orderUpdates", checked)}
-                          />
+                          <Switch checked={formState.notifications.orderUpdates}
+                            onCheckedChange={(checked) => handleInputChange("notifications", "orderUpdates", checked)} />
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="space-y-0.5">
@@ -577,30 +505,24 @@ export default function SettingsPage() {
                               Notifications about sales and special offers
                             </p>
                           </div>
-                          <Switch
-                            checked={formState.notifications.promotions}
-                            onCheckedChange={(checked) => handleInputChange("notifications", "promotions", checked)}
-                          />
+                          <Switch checked={formState.notifications.promotions}
+                            onCheckedChange={(checked) => handleInputChange("notifications", "promotions", checked)} />
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="space-y-0.5">
                             <Label>Newsletter</Label>
                             <p className="text-sm text-muted-foreground">Weekly newsletter with product updates</p>
                           </div>
-                          <Switch
-                            checked={formState.notifications.newslatter}
-                            onCheckedChange={(checked) => handleInputChange("notifications", "newslatter", checked)}
-                          />
+                          <Switch checked={formState.notifications.newslatter}
+                            onCheckedChange={(checked) => handleInputChange("notifications", "newslatter", checked)} />
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="space-y-0.5">
                             <Label>Account Alerts</Label>
                             <p className="text-sm text-muted-foreground">Security and account-related notifications</p>
                           </div>
-                          <Switch
-                            checked={formState.notifications.accountAlerts}
-                            onCheckedChange={(checked) => handleInputChange("notifications", "accountAlerts", checked)}
-                          />
+                          <Switch checked={formState.notifications.accountAlerts}
+                            onCheckedChange={(checked) => handleInputChange("notifications", "accountAlerts", checked)}/>
                         </div>
                       </div>
                     </div>
@@ -611,17 +533,13 @@ export default function SettingsPage() {
                     </div>
                   </TabsContent>
 
-                  {/* Preferences Settings */}
                   <TabsContent value="preferences" className="space-y-6">
                     <div className="space-y-4">
                       <h3 className="text-lg font-medium">Regional Settings</h3>
                       <div className="grid gap-4 md:grid-cols-2">
                         <div className="space-y-2">
                           <Label htmlFor="language">Language</Label>
-                          <Select
-                            value={formState.preferences.language}
-                            onValueChange={(value) => handleInputChange("preferences", "language", value)}
-                          >
+                          <Select value={formState.preferences.language} onValueChange={(value) => handleInputChange("preferences", "language", value)}>
                             <SelectTrigger>
                               <SelectValue placeholder="Select language" />
                             </SelectTrigger>
@@ -636,10 +554,7 @@ export default function SettingsPage() {
                         </div>
                         <div className="space-y-2">
                           <Label htmlFor="currency">Currency</Label>
-                          <Select
-                            value={formState.preferences.currency}
-                            onValueChange={(value) => handleInputChange("preferences", "currency", value)}
-                          >
+                          <Select value={formState.preferences.currency} onValueChange={(value) => handleInputChange("preferences", "currency", value)}>
                             <SelectTrigger>
                               <SelectValue placeholder="Select currency" />
                             </SelectTrigger>
@@ -653,10 +568,8 @@ export default function SettingsPage() {
                         </div>
                         <div className="space-y-2">
                           <Label htmlFor="timezone">Time Zone</Label>
-                          <Select
-                            value={formState.preferences.timezone}
-                            onValueChange={(value) => handleInputChange("preferences", "timezone", value)}
-                          >
+                          <Select value={formState.preferences.timezone}
+                            onValueChange={(value) => handleInputChange("preferences", "timezone", value)}>
                             <SelectTrigger>
                               <SelectValue placeholder="Select timezone" />
                             </SelectTrigger>
@@ -678,16 +591,12 @@ export default function SettingsPage() {
                       <div className="space-y-4">
                         <div className="space-y-2">
                           <Label>Theme Mode</Label>
-                          <RadioGroup
-                            value={formState.preferences.theme}
+                          <RadioGroup value={formState.preferences.theme}
                             onValueChange={(value) => {
                               handleInputChange("preferences", "theme", value)
                               if (value === "dark") setDarkMode(true)
                               else if (value === "light") setDarkMode(false)
-                              // System would be handled with a media query in a real app
-                            }}
-                            className="flex gap-4"
-                          >
+                            }} className="flex gap-4">
                             <div className="flex items-center space-x-2">
                               <RadioGroupItem value="light" id="light" />
                               <Label htmlFor="light" className="flex items-center gap-1 cursor-pointer">
@@ -717,18 +626,14 @@ export default function SettingsPage() {
                     </div>
                   </TabsContent>
 
-                  {/* Privacy Settings */}
                   <TabsContent value="privacy" className="space-y-6">
                     <div className="space-y-4">
                       <h3 className="text-lg font-medium">Privacy Settings</h3>
                       <div className="space-y-4">
                         <div className="space-y-2">
                           <Label>Profile Visibility</Label>
-                          <RadioGroup
-                            value={formState.privacy.profileVisibility}
-                            onValueChange={(value) => handleInputChange("privacy", "profileVisibility", value)}
-                            className="space-y-2"
-                          >
+                          <RadioGroup value={formState.privacy.profileVisibility} onValueChange={(value) => handleInputChange("privacy", "profileVisibility", value)}
+                            className="space-y-2">
                             <div className="flex items-center space-x-2">
                               <RadioGroupItem value="public" id="public" />
                               <Label htmlFor="public" className="cursor-pointer">
@@ -757,10 +662,8 @@ export default function SettingsPage() {
                               Allow us to track your activity for a better experience
                             </p>
                           </div>
-                          <Switch
-                            checked={formState.privacy.activityTracking}
-                            onCheckedChange={(checked) => handleInputChange("privacy", "activityTracking", checked)}
-                          />
+                          <Switch checked={formState.privacy.activityTracking}
+                            onCheckedChange={(checked) => handleInputChange("privacy", "activityTracking", checked)}/>
                         </div>
 
                         <div className="flex items-center justify-between">
@@ -770,10 +673,8 @@ export default function SettingsPage() {
                               Allow us to share your data with trusted partners
                             </p>
                           </div>
-                          <Switch
-                            checked={formState.privacy.dataSharing}
-                            onCheckedChange={(checked) => handleInputChange("privacy", "dataSharing", checked)}
-                          />
+                          <Switch checked={formState.privacy.dataSharing}
+                            onCheckedChange={(checked) => handleInputChange("privacy", "dataSharing", checked)}/>
                         </div>
                       </div>
                     </div>
@@ -783,11 +684,8 @@ export default function SettingsPage() {
                     <div className="space-y-4">
                       <h3 className="text-lg font-medium">Cookie Preferences</h3>
                       <div className="space-y-2">
-                        <RadioGroup
-                          value={formState.privacy.cookiePreferences}
-                          onValueChange={(value) => handleInputChange("privacy", "cookiePreferences", value)}
-                          className="space-y-2"
-                        >
+                        <RadioGroup value={formState.privacy.cookiePreferences}
+                          onValueChange={(value) => handleInputChange("privacy", "cookiePreferences", value)} className="space-y-2">
                           <div className="flex items-center space-x-2">
                             <RadioGroupItem value="essential" id="essential" />
                             <Label htmlFor="essential" className="cursor-pointer">
@@ -842,4 +740,3 @@ export default function SettingsPage() {
     </div>
   )
 }
-
