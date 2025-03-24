@@ -12,12 +12,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Progress } from "@/components/ui/progress"
 import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu"
+import { DropdownMenu,  DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu"
+import { useRouter } from "next/navigation"
 
 export default function NotificationsPage() {
     const [notifications, setNotifications] = useState([
@@ -124,17 +120,19 @@ export default function NotificationsPage() {
 
     const unreadCount = notifications.filter(notification => !notification.isRead).length
 
+    const router = useRouter ()
+
     return (
         <div className="min-h-screen bg-background">
             <main className="container mx-auto px-4 py-8">
                 <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
                     <h1 className="text-3xl font-bold gradient-text">My Notifications</h1>
                     <div className="flex items-center gap-2 mt-4 md:mt-0">
-                        <Button variant="outline" size="sm" className="button-outline">
+                        <Button variant="outline" size="sm" className="button-outline" onClick={() => { router.push("/account/help") }}>
                             <HelpCircle className="h-4 w-4 mr-2" />
                             Help Center
                         </Button>
-                        <Button variant="outline" size="sm" className="button-outline">
+                        <Button variant="outline" size="sm" className="button-outline" onClick={() => { router.push("/account/support") }}>
                             <Phone className="h-4 w-4 mr-2" />
                             Contact Support
                         </Button>

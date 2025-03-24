@@ -13,21 +13,22 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Progress } from "@/components/ui/progress"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useRouter } from "next/navigation"
 
 export default function OrdersPage() {
   const [activeTab, setActiveTab] = useState("all")
-
+  const router = useRouter ()
   return (
     <div className="min-h-screen bg-background">
       <main className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
           <h1 className="text-3xl font-bold gradient-text">My Orders</h1>
           <div className="flex items-center gap-2 mt-4 md:mt-0">
-            <Button variant="outline" size="sm" className="button-outline">
+            <Button variant="outline" size="sm" className="button-outline" onClick={() => { router.push("/account/help") }}>
               <HelpCircle className="h-4 w-4 mr-2" />
               Help Center
             </Button>
-            <Button variant="outline" size="sm" className="button-outline">
+            <Button variant="outline" size="sm" className="button-outline" onClick={() => { router.push("/account/support") }}>
               <Phone className="h-4 w-4 mr-2" />
               Contact Support
             </Button>
@@ -71,7 +72,7 @@ export default function OrdersPage() {
                       <span className="text-xs text-primary">Gold</span>
                     </div>
                     <div className="relative pt-1">
-                      <Progress value={75} className="h-2 bg-muted"/>
+                      <Progress value={75} className="h-2 bg-muted" />
                       <div className="flex items-center justify-between mt-1">
                         <span className="text-xs text-muted-foreground">320 points</span>
                         <span className="text-xs text-muted-foreground">500 points for Platinum</span>
@@ -344,7 +345,7 @@ export default function OrdersPage() {
                                     </div>
                                     <p className="text-xs text-muted-foreground mt-1">Your order is on the way!</p>
                                     <div className="mt-2">
-                                      <Progress value={75} className="h-1.5 bg-muted"/>
+                                      <Progress value={75} className="h-1.5 bg-muted" />
                                       <div className="flex items-center justify-between mt-1">
                                         <span className="text-[10px] text-muted-foreground">Packed</span>
                                         <span className="text-[10px] text-muted-foreground">Out for Delivery</span>
@@ -367,7 +368,7 @@ export default function OrdersPage() {
                                     </div>
                                     <p className="text-xs text-muted-foreground mt-1">Your order is being prepared</p>
                                     <div className="mt-2">
-                                      <Progress value={30} className="h-1.5 bg-muted"/>
+                                      <Progress value={30} className="h-1.5 bg-muted" />
                                       <div className="flex items-center justify-between mt-1">
                                         <span className="text-[10px] text-muted-foreground">Confirmed</span>
                                         <span className="text-[10px] text-muted-foreground">Packing</span>
@@ -481,7 +482,7 @@ export default function OrdersPage() {
                                 </div>
                                 <p className="text-xs text-muted-foreground mt-1">Your order is being prepared</p>
                                 <div className="mt-2">
-                                  <Progress value={30} className="h-1.5 bg-muted"/>
+                                  <Progress value={30} className="h-1.5 bg-muted" />
                                   <div className="flex items-center justify-between mt-1">
                                     <span className="text-[10px] text-muted-foreground">Confirmed</span>
                                     <span className="text-[10px] text-muted-foreground">Packing</span>
@@ -587,7 +588,7 @@ export default function OrdersPage() {
                                 </div>
                                 <p className="text-xs text-muted-foreground mt-1">Your order is on the way!</p>
                                 <div className="mt-2">
-                                  <Progress value={75} className="h-1.5 bg-muted"/>
+                                  <Progress value={75} className="h-1.5 bg-muted" />
                                   <div className="flex items-center justify-between mt-1">
                                     <span className="text-[10px] text-muted-foreground">Packed</span>
                                     <span className="text-[10px] text-muted-foreground">Out for Delivery</span>

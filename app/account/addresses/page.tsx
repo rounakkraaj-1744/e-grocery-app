@@ -17,8 +17,10 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { useRouter } from "next/navigation"
 
 export default function AddressesPage() {
+    const router = useRouter ()
     const [addresses, setAddresses] = useState([
         {
             id: 1,
@@ -90,11 +92,11 @@ export default function AddressesPage() {
                 <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
                     <h1 className="text-3xl font-bold gradient-text">My Addresses</h1>
                     <div className="flex items-center gap-2 mt-4 md:mt-0">
-                        <Button variant="outline" size="sm" className="button-outline">
+                        <Button variant="outline" size="sm" className="button-outline" onClick={() => { router.push("/account/help") }}>
                             <HelpCircle className="h-4 w-4 mr-2" />
                             Help Center
                         </Button>
-                        <Button variant="outline" size="sm" className="button-outline">
+                        <Button variant="outline" size="sm" className="button-outline" onClick={() => { router.push("/account/support") }}>
                             <Phone className="h-4 w-4 mr-2" />
                             Contact Support
                         </Button>
@@ -267,7 +269,7 @@ export default function AddressesPage() {
                                                     <div className="grid gap-4 md:grid-cols-2">
                                                         <div className="space-y-2">
                                                             <Label htmlFor="address-name">Address Name</Label>
-                                                            <Input id="address-name" placeholder="e.g. Home, Office, etc." defaultValue={editingAddress?.name || ""}/>
+                                                            <Input id="address-name" placeholder="e.g. Home, Office, etc." defaultValue={editingAddress?.name || ""} />
                                                         </div>
                                                         <div className="space-y-2">
                                                             <Label htmlFor="full-name">Full Name</Label>

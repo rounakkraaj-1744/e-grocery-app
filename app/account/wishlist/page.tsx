@@ -12,8 +12,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Progress } from "@/components/ui/progress"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useRouter } from "next/navigation"
 
 export default function WishlistPage() {
+  const router = useRouter()
   const [wishlistItems, setWishlistItems] = useState([
     {
       id: 1,
@@ -99,11 +101,11 @@ export default function WishlistPage() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
           <h1 className="text-3xl font-bold gradient-text">My Wishlist</h1>
           <div className="flex items-center gap-2 mt-4 md:mt-0">
-            <Button variant="outline" size="sm" className="button-outline">
+            <Button variant="outline" size="sm" className="button-outline" onClick={() => { router.push("/account/help") }}>
               <HelpCircle className="h-4 w-4 mr-2" />
               Help Center
             </Button>
-            <Button variant="outline" size="sm" className="button-outline">
+            <Button variant="outline" size="sm" className="button-outline" onClick={() => { router.push("/account/support") }}>
               <Phone className="h-4 w-4 mr-2" />
               Contact Support
             </Button>
@@ -147,7 +149,7 @@ export default function WishlistPage() {
                       <span className="text-xs text-primary">Gold</span>
                     </div>
                     <div className="relative pt-1">
-                      <Progress value={75} className="h-2 bg-muted"/>
+                      <Progress value={75} className="h-2 bg-muted" />
                       <div className="flex items-center justify-between mt-1">
                         <span className="text-xs text-muted-foreground">320 points</span>
                         <span className="text-xs text-muted-foreground">500 points for Platinum</span>
@@ -326,17 +328,17 @@ export default function WishlistPage() {
                             <p className="font-bold mt-1">₹{item.price.toFixed(2)}</p>
                           </div>
                           <div className="flex flex-col gap-2 md:items-end">
-                            <Button 
-                              size="sm" 
+                            <Button
+                              size="sm"
                               className="h-8 button-primary"
                               disabled={!item.inStock}
                             >
                               <ShoppingCart className="h-3 w-3 mr-1" />
                               Add to Cart
                             </Button>
-                            <Button 
-                              variant="outline" 
-                              size="sm" 
+                            <Button
+                              variant="outline"
+                              size="sm"
                               className="h-8 text-destructive hover:bg-destructive/10 hover:text-destructive"
                               onClick={() => removeFromWishlist(item.id)}
                             >
@@ -383,9 +385,9 @@ export default function WishlistPage() {
                           alt={`Recommended product ${id}`}
                           className="h-full w-full object-cover rounded-md"
                         />
-                        <Button 
-                          variant="outline" 
-                          size="icon" 
+                        <Button
+                          variant="outline"
+                          size="icon"
                           className="absolute top-2 right-2 h-7 w-7 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background"
                         >
                           <Heart className="h-4 w-4 text-primary" />

@@ -13,8 +13,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { toast } from "sonner"
-import { User, Package, Heart, CreditCard, MapPin, Bell, LogOut, Edit, Settings, Gift, ChevronRight, HelpCircle, Phone, Mail, Lock, Eye, EyeOff,
-  Moon, Sun, BellRing, Trash2, AlertTriangle, ShieldAlert, UserCog, Palette, Laptop} from "lucide-react"
+import {
+  User, Package, Heart, CreditCard, MapPin, Bell, LogOut, Edit, Settings, Gift, ChevronRight, HelpCircle, Phone, Mail, Lock, Eye, EyeOff,
+  Moon, Sun, BellRing, Trash2, AlertTriangle, ShieldAlert, UserCog, Palette, Laptop
+} from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Progress } from "@/components/ui/progress"
 import { useEffect } from "react"
@@ -86,13 +88,13 @@ export default function SettingsPage() {
   const handleSaveSettings = (section: string) => {
     //@ts-ignore
     console.log(`Saving ${section} settings:`, formState[section])
-    toast.success("Settings saved",{
+    toast.success("Settings saved", {
       description: `Your ${section} settings have been updated successfully.`,
     })
   }
 
   const handleDeleteAccount = () => {
-    toast.success("Account deletion requested",{
+    toast.success("Account deletion requested", {
       description: "We've sent a confirmation email. Please follow the instructions to delete your account.",
     })
   }
@@ -103,11 +105,11 @@ export default function SettingsPage() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
           <h1 className="text-3xl font-bold gradient-text">Account Settings</h1>
           <div className="flex items-center gap-2 mt-4 md:mt-0">
-            <Button variant="outline" size="sm" className="button-outline">
+            <Button variant="outline" size="sm" className="button-outline" onClick={() => { router.push("/account/help") }}>
               <HelpCircle className="h-4 w-4 mr-2" />
               Help Center
             </Button>
-            <Button variant="outline" size="sm" className="button-outline">
+            <Button variant="outline" size="sm" className="button-outline" onClick={() => { router.push("/account/support") }}>
               <Phone className="h-4 w-4 mr-2" />
               Contact Support
             </Button>
@@ -332,7 +334,7 @@ export default function SettingsPage() {
                         <div className="space-y-2 md:col-span-2">
                           <Label htmlFor="bio">Bio</Label>
                           <Textarea id="bio" placeholder="Tell us about yourself" className="min-h-[100px]" value={formState.profile.bio}
-                            onChange={(e: { target: { value: any } }) => handleInputChange("profile", "bio", e.target.value)}/>
+                            onChange={(e: { target: { value: any } }) => handleInputChange("profile", "bio", e.target.value)} />
                         </div>
                       </div>
                     </div>
@@ -429,7 +431,7 @@ export default function SettingsPage() {
                             </p>
                           </div>
                           <Switch checked={formState.security.loginNotifications}
-                            onCheckedChange={(checked) => handleInputChange("security", "loginNotifications", checked)}/>
+                            onCheckedChange={(checked) => handleInputChange("security", "loginNotifications", checked)} />
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="space-y-0.5">
@@ -472,7 +474,7 @@ export default function SettingsPage() {
                           <Switch checked={formState.notifications.smsNotifications}
                             onCheckedChange={(checked) =>
                               handleInputChange("notifications", "smsNotifications", checked)
-                            }/>
+                            } />
                         </div>
                         <div className="flex items-center justify-between">
                           <div className="space-y-0.5">
@@ -482,7 +484,7 @@ export default function SettingsPage() {
                           <Switch checked={formState.notifications.pushNotifications}
                             onCheckedChange={(checked) =>
                               handleInputChange("notifications", "pushNotifications", checked)
-                            }/>
+                            } />
                         </div>
                       </div>
                     </div>
@@ -524,7 +526,7 @@ export default function SettingsPage() {
                             <p className="text-sm text-muted-foreground">Security and account-related notifications</p>
                           </div>
                           <Switch checked={formState.notifications.accountAlerts}
-                            onCheckedChange={(checked) => handleInputChange("notifications", "accountAlerts", checked)}/>
+                            onCheckedChange={(checked) => handleInputChange("notifications", "accountAlerts", checked)} />
                         </div>
                       </div>
                     </div>
@@ -665,7 +667,7 @@ export default function SettingsPage() {
                             </p>
                           </div>
                           <Switch checked={formState.privacy.activityTracking}
-                            onCheckedChange={(checked) => handleInputChange("privacy", "activityTracking", checked)}/>
+                            onCheckedChange={(checked) => handleInputChange("privacy", "activityTracking", checked)} />
                         </div>
 
                         <div className="flex items-center justify-between">
@@ -676,7 +678,7 @@ export default function SettingsPage() {
                             </p>
                           </div>
                           <Switch checked={formState.privacy.dataSharing}
-                            onCheckedChange={(checked) => handleInputChange("privacy", "dataSharing", checked)}/>
+                            onCheckedChange={(checked) => handleInputChange("privacy", "dataSharing", checked)} />
                         </div>
                       </div>
                     </div>

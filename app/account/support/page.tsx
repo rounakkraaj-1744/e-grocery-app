@@ -15,8 +15,10 @@ import { User, Package, Heart, CreditCard, MapPin, Bell, LogOut, Edit, Settings,
   Send, Clock, Video, CheckCircle2, Calendar, FileText, AlertCircle, Headphones,} from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Progress } from "@/components/ui/progress"
+import { useRouter } from "next/navigation"
 
 export default function ContactSupportPage() {
+  const router = useRouter()
   const [formState, setFormState] = useState({
     name: "Rahul Sharma",
     email: "rahul.sharma@example.com",
@@ -53,13 +55,13 @@ export default function ContactSupportPage() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
           <h1 className="text-3xl font-bold gradient-text">Contact Support</h1>
           <div className="flex items-center gap-2 mt-4 md:mt-0">
-            <Button variant="outline" size="sm" className="button-outline">
+          <Button variant="outline" size="sm" className="button-outline" onClick={()=>{router.push ("/account/help")}}>
               <HelpCircle className="h-4 w-4 mr-2" />
               Help Center
             </Button>
-            <Button variant="outline" size="sm" className="button-outline">
+            <Button variant="outline" size="sm" className="button-outline" onClick={()=>{router.push("/account/support")}}>
               <Phone className="h-4 w-4 mr-2" />
-              Call Us
+              Contact Support
             </Button>
           </div>
         </div>
