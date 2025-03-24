@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { SetStateAction, useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
@@ -16,7 +16,8 @@ export default function RewardsPage() {
   const [activeTab, setActiveTab] = useState("rewards")
   const [expandedFaq, setExpandedFaq] = useState(null)
 
-  const toggleFaq = (id) => {
+  const toggleFaq = (id: number | SetStateAction<null>) => {
+    //@ts-ignore
     setExpandedFaq(expandedFaq === id ? null : id)
   }
 
