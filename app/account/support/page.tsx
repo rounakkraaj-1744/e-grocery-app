@@ -168,17 +168,6 @@ export default function ContactSupportPage() {
                   <Settings className="h-5 w-5" /> Settings
                   <ChevronRight className="h-4 w-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
-                <Link href="/help-center" className="flex items-center gap-3 p-3 border-t hover:bg-muted/50 group">
-                  <HelpCircle className="h-5 w-5" /> Help Center
-                  <ChevronRight className="h-4 w-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-                <Link
-                  href="/contact-support"
-                  className="flex items-center gap-3 p-3 border-t bg-primary/5 text-primary"
-                >
-                  <Headphones className="h-5 w-5" /> Contact Support
-                  <ChevronRight className="h-4 w-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
                 <Link
                   href="/logout"
                   className="flex items-center gap-3 p-3 border-t text-destructive hover:bg-destructive/5 group"
