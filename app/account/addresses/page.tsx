@@ -219,7 +219,7 @@ export default function AddressesPage() {
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <Mail className="h-4 w-4 text-primary" />
-                                        <span>support@freshcart.com</span>
+                                        <span>support@OneHyperMart.com</span>
                                     </div>
                                 </div>
                             </CardContent>

@@ -164,7 +164,7 @@ export default function AccountPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Mail className="h-4 w-4 text-primary" />
-                    <span>support@freshcart.com</span>
+                    <span>support@OneHyperMart.com</span>
                   </div>
                 </div>
               </CardContent>
@@ -694,7 +694,7 @@ export default function AccountPage() {
                                 </Button>
                               </div>
                               <h4 className="font-medium">₹300 Store Credit</h4>
-                              <p className="text-sm text-muted-foreground mt-1">Add ₹300 to your FreshCart wallet</p>
+                              <p className="text-sm text-muted-foreground mt-1">Add ₹300 to your OneHyperMart wallet</p>
                             </div>
                           </div>
                         </div>

@@ -12,7 +12,7 @@ export default function Home() {
       <div className="min-h-screen bg-background">
 
         <main className="container mx-auto px-4 py-8">
-          <PromoBanner />
+          {/* <PromoBanner /> */}
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-[280px_1fr] gap-8">
             <div className="hidden md:block">

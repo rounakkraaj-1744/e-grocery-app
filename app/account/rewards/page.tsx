@@ -54,7 +54,7 @@ export default function RewardsPage() {
             id: 4,
             name: "₹300 Store Credit",
             points: 300,
-            description: "Add ₹300 to your FreshCart wallet",
+            description: "Add ₹300 to your OneHyperMart wallet",
             expiresIn: "Never expires",
             category: "credit",
         },
@@ -306,7 +306,7 @@ export default function RewardsPage() {
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <Mail className="h-4 w-4 text-primary" />
-                                        <span>support@freshcart.com</span>
+                                        <span>support@OneHyperMart.com</span>
                                     </div>
                                 </div>
                             </CardContent>

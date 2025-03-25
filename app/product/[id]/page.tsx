@@ -7,7 +7,7 @@ import { Separator } from "@/components/ui/separator"
 import { Star, ShoppingCart, Heart, Share2, Truck, Clock, ShieldCheck, Leaf, Award, ChevronRight, Minus, Plus } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: "Organic Fresh Avocado | FreshCart",
+  title: "Organic Fresh Avocado | OneHyperMart",
   description: "Premium quality organic avocados, rich in nutrients and perfect for your healthy lifestyle.",
 }
 

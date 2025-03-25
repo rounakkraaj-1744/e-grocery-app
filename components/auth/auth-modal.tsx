@@ -39,7 +39,7 @@ export function AuthModal() {
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle className="text-xl font-bold text-center">Welcome to FreshCart</DialogTitle>
+          <DialogTitle className="text-xl font-bold text-center">Welcome to OneHyperMart</DialogTitle>
           <DialogDescription className="text-center">Sign in or create an account</DialogDescription>
         </DialogHeader>
         <Tabs defaultValue="login" className="w-full">

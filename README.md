@@ -1,4 +1,4 @@
-# FreshCart - E-grocery System
+# OneHyperMart - E-grocery System
 
 ---
 

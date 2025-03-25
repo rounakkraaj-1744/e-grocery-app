@@ -12,10 +12,10 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <ShoppingBag className="h-6 w-6 text-primary" />
-              <span className="text-xl font-bold gradient-text">FreshCart</span>
+              <span className="text-xl font-bold gradient-text">OneHyperMart</span>
             </Link>
             <p className="text-sm text-muted-foreground mb-6 max-w-md">
-              FreshCart delivers premium quality groceries right to your doorstep in Berhampur, Odisha. Enjoy fresh
+              OneHyperMart delivers premium quality groceries right to your doorstep in Berhampur, Odisha. Enjoy fresh
               produce, pantry essentials, and specialty items with fast delivery and exceptional service.
             </p>
             <div className="flex items-center gap-4 mb-6">
@@ -44,7 +44,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <Mail className="h-4 w-4 text-primary" />
-                <span>support@freshcart.com</span>
+                <span>support@OneHyperMart.com</span>
               </div>
               <div className="flex items-start gap-2 text-sm">
                 <MapPin className="h-4 w-4 text-primary mt-0.5" />
@@ -186,7 +186,7 @@ export function Footer() {
           <Separator className="my-6" />
 
           <div className="text-center text-sm text-muted-foreground">
-            <p>© {new Date().getFullYear()} FreshCart. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} OneHyperMart. All rights reserved.</p>
           </div>
         </div>
       </div>

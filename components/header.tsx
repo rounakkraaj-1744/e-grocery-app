@@ -39,7 +39,7 @@ export function Header() {
               <div className="flex flex-col gap-6 py-4">
                 <Link href="/" className="flex items-center gap-2">
                   <ShoppingBag className="h-6 w-6 text-primary" />
-                  <span className="text-xl font-bold gradient-text">FreshCart</span>
+                  <span className="text-xl font-bold gradient-text">OneHyperMart</span>
                 </Link>
                 <nav className="flex flex-col gap-4">
                   <Link href="/account"
@@ -53,7 +53,7 @@ export function Header() {
 
           <Link href="/" className="flex items-center gap-2">
             <ShoppingBag className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold gradient-text">FreshCart</span>
+            <span className="text-xl font-bold gradient-text">OneHyperMart</span>
           </Link>
         </div>
 

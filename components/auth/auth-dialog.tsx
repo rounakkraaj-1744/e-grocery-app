@@ -21,7 +21,7 @@ export function AuthDialog() {
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Welcome to FreshCart</DialogTitle>
+          <DialogTitle>Welcome to OneHyperMart</DialogTitle>
           <DialogDescription>Sign in or create an account to continue shopping</DialogDescription>
         </DialogHeader>
         <Tabs defaultValue="login" className="w-full">

@@ -224,7 +224,7 @@ export default function DeliveryOptions() {
                     <RadioGroupItem value="store1" id="store1" className="mt-1" />
                     <div className="flex-1">
                       <Label htmlFor="store1" className="font-medium">
-                        FreshCart - Gosaninuagaon
+                        OneHyperMart - Gosaninuagaon
                       </Label>
                       <p className="text-sm text-muted-foreground">
                         42 Gosaninuagaon Main Road, Near City Hospital, Berhampur, Odisha 760001
@@ -238,7 +238,7 @@ export default function DeliveryOptions() {
                     <RadioGroupItem value="store2" id="store2" className="mt-1" />
                     <div className="flex-1">
                       <Label htmlFor="store2" className="font-medium">
-                        FreshCart - Ambapua
+                        OneHyperMart - Ambapua
                       </Label>
                       <p className="text-sm text-muted-foreground">
                         78 Tata Benz Square, 2nd Floor, Ambapua, Berhampur, Odisha 760010
@@ -252,7 +252,7 @@ export default function DeliveryOptions() {
                     <RadioGroupItem value="store3" id="store3" className="mt-1" />
                     <div className="flex-1">
                       <Label htmlFor="store3" className="font-medium">
-                        FreshCart - Kamapalli
+                        OneHyperMart - Kamapalli
                       </Label>
                       <p className="text-sm text-muted-foreground">
                         23 Kamapalli Main Road, Near Gandhi Park, Berhampur, Odisha 760004

@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "FreshCart - Premium Online Grocery Shopping",
+  title: "OneHyperMart - Premium Online Grocery Shopping",
   description: "Fresh groceries delivered to your doorstep",
 }
 

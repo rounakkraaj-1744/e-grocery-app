@@ -202,7 +202,7 @@ export default function HelpCenterPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Mail className="h-4 w-4 text-primary" />
-                    <span className="text-sm">support@freshcart.com</span>
+                    <span className="text-sm">support@OneHyperMart.com</span>
                   </div>
                 </div>
               </CardFooter>

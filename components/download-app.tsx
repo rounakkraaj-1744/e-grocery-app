@@ -36,7 +36,7 @@ export function DownloadApp() {
               <div className="absolute top-[60px] left-[10px] right-[10px] bottom-[60px] overflow-hidden rounded-lg">
                 <img
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-eVXCdp5LYHN8V0OoKNJ2V8lnI2QoUj.png"
-                  alt="FreshCart Mobile App"
+                  alt="OneHyperMart Mobile App"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -75,7 +75,7 @@ export function DownloadApp() {
           <motion.div className="space-y-6" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }} >
             <div>
-              <h2 className="text-3xl font-bold mb-2 gradient-text">Get the FreshCart app</h2>
+              <h2 className="text-3xl font-bold mb-2 gradient-text">Get the OneHyperMart app</h2>
               <p className="text-muted-foreground">
                 We will send you a link, open it on your phone to download the app.
               </p>
