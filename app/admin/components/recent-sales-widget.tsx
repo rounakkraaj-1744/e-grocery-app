@@ -12,7 +12,7 @@ export function RecentSalesWidget() {
           <p className="text-sm font-medium leading-none">John Doe</p>
           <p className="text-sm text-muted-foreground">john.doe@example.com</p>
         </div>
-        <div className="ml-auto font-medium">+$89.00</div>
+        <div className="ml-auto font-medium">+₹89.00</div>
       </div>
       <div className="flex items-center">
         <Avatar className="h-9 w-9">
@@ -23,7 +23,7 @@ export function RecentSalesWidget() {
           <p className="text-sm font-medium leading-none">Sarah Davis</p>
           <p className="text-sm text-muted-foreground">sarah.davis@example.com</p>
         </div>
-        <div className="ml-auto font-medium">+$39.00</div>
+        <div className="ml-auto font-medium">+₹39.00</div>
       </div>
       <div className="flex items-center">
         <Avatar className="h-9 w-9">
@@ -34,7 +34,7 @@ export function RecentSalesWidget() {
           <p className="text-sm font-medium leading-none">Robert Kim</p>
           <p className="text-sm text-muted-foreground">robert.kim@example.com</p>
         </div>
-        <div className="ml-auto font-medium">+$299.00</div>
+        <div className="ml-auto font-medium">+₹299.00</div>
       </div>
       <div className="flex items-center">
         <Avatar className="h-9 w-9">
@@ -45,7 +45,7 @@ export function RecentSalesWidget() {
           <p className="text-sm font-medium leading-none">Alicia Martinez</p>
           <p className="text-sm text-muted-foreground">alicia.m@example.com</p>
         </div>
-        <div className="ml-auto font-medium">+$149.00</div>
+        <div className="ml-auto font-medium">+₹149.00</div>
       </div>
       <div className="flex items-center">
         <Avatar className="h-9 w-9">
@@ -56,7 +56,7 @@ export function RecentSalesWidget() {
           <p className="text-sm font-medium leading-none">Thomas Johnson</p>
           <p className="text-sm text-muted-foreground">thomas.j@example.com</p>
         </div>
-        <div className="ml-auto font-medium">+$59.00</div>
+        <div className="ml-auto font-medium">+₹59.00</div>
       </div>
     </div>
   )
