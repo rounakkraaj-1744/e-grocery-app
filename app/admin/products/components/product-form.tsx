@@ -4,6 +4,7 @@ import { JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useSt
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import { Camera, Loader2, Plus, X } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -15,6 +16,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "sonner"
 
+// Categories for the dropdown
 const categories = [
   "Fruits",
   "Vegetables",
@@ -72,7 +74,7 @@ export function ProductForm({ initialData }: ProductFormProps) {
 
     setTimeout(() => {
       setIsSubmitting(false)
-      toast.success( initialData ? "Product updated" : "Product created", {
+      toast.success(initialData ? "Product updated" : "Product created",{
         description: `${productData.name} has been ${initialData ? "updated" : "added"} successfully.`,
       })
       router.push("/admin/products")
@@ -90,7 +92,7 @@ export function ProductForm({ initialData }: ProductFormProps) {
     setProductData((prev) => ({
       ...prev,
       [parent]: {
-        //@ts-ignore
+        // @ts-ignore
         ...prev[parent],
         [field]: value,
       },
@@ -140,8 +142,13 @@ export function ProductForm({ initialData }: ProductFormProps) {
               <div className="grid gap-4">
                 <div className="grid gap-2">
                   <Label htmlFor="name">Product Name</Label>
-                  <Input id="name" placeholder="Enter product name" value={productData.name}
-                    onChange={(e) => handleChange("name", e.target.value)} required/>
+                  <Input
+                    id="name"
+                    placeholder="Enter product name"
+                    value={productData.name}
+                    onChange={(e) => handleChange("name", e.target.value)}
+                    required
+                  />
                 </div>
 
                 <div className="grid gap-2">
@@ -177,7 +184,8 @@ export function ProductForm({ initialData }: ProductFormProps) {
                     checked={productData.featured}
                     onCheckedChange={(checked) => handleChange("featured", checked)}
                   />
-                  <label htmlFor="featured"
+                  <label
+                    htmlFor="featured"
                     className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
                     Featured product
@@ -189,13 +197,21 @@ export function ProductForm({ initialData }: ProductFormProps) {
             <TabsContent value="pricing" className="space-y-4 pt-4">
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="grid gap-2">
-                  <Label htmlFor="price">Price ($)</Label>
-                  <Input id="price" type="number" step="0.01" min="0" placeholder="0.00" value={productData.price}
-                    onChange={(e) => handleChange("price", e.target.value)} required/>
+                  <Label htmlFor="price">Price (₹)</Label>
+                  <Input
+                    id="price"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    placeholder="0.00"
+                    value={productData.price}
+                    onChange={(e) => handleChange("price", e.target.value)}
+                    required
+                  />
                 </div>
 
                 <div className="grid gap-2">
-                  <Label htmlFor="originalPrice">Original Price ($)</Label>
+                  <Label htmlFor="originalPrice">Original Price (₹)</Label>
                   <Input
                     id="originalPrice"
                     type="number"
@@ -398,7 +414,12 @@ export function ProductForm({ initialData }: ProductFormProps) {
                         <Camera className="h-4 w-4" />
                         Change Image
                       </Label>
-                      <Input id="image-upload" type="file" accept="image/*" className="sr-only"/>
+                      <Input
+                        id="image-upload"
+                        type="file"
+                        accept="image/*"
+                        className="sr-only"
+                      />
                     </div>
                   </div>
                   <p className="text-xs text-muted-foreground">Upload a high-quality image to showcase your product.</p>
@@ -413,10 +434,10 @@ export function ProductForm({ initialData }: ProductFormProps) {
                         {productData.description || "Product description will appear here"}
                       </div>
                       <div className="mt-2">
-                        <span className="font-medium">${Number(productData.price || 0).toFixed(2)}</span>
+                        <span className="font-medium">₹{Number(productData.price || 0).toFixed(2)}</span>
                         {productData.discount > 0 && (
                           <span className="ml-2 text-muted-foreground line-through">
-                            ${Number(productData.originalPrice || 0).toFixed(2)}
+                            ₹{Number(productData.originalPrice || 0).toFixed(2)}
                           </span>
                         )}
                       </div>
